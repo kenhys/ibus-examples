@@ -1,0 +1,12 @@
+Makefile.in
+configure
+config.h.in
+compile
+autom4te.cache
+aclocal.m4
+install-sh
+ltmain.sh
+depcomp
+m4
+missing
+
