@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+  <name>com.example.IBus.SIMPLEMENU</name>
+  <description>Simple Menu Component</description>
+  <exec>/usr/libexec/ibus-engine-simplemenu</exec>
+  <version>1.0.0</version>
+  <author>Kentaro Hayashi</author>
+  <license>MIT</license>
+  <homepage>https://github.com/kenhys/ibus-examples</homepage>
+  <textdomain>ibus-engine-simplemenu</textdomain>
+
+  <engines>
+    <engine>
+      <name>simplemenu</name>
+      <language>ja</language>
+      <license>MIT</license>
+      <author>Kentaro Hayashi</author>
+      <icon></icon>
+      <layout>default</layout>
+      <longname>SimpleMenu</longname>
+      <description>IBUS simple menu</description>
+      <rank>50</rank>
+    </engine>
+  </engines>
+</component>
