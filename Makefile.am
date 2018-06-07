@@ -1,0 +1,5 @@
+ACLOCAL_AMFLAGS = -I m4
+
+SUBDIRS = \
+	simple-menu \
+	$(NULL)
