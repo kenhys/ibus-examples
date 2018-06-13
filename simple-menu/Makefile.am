@@ -16,6 +16,7 @@ ibus_engine_simplemenu_LDFLAGS = \
 
 ibus_engine_simplemenu_LDADD = \
         @GTK_LIBS@ \
+        @IBUS_LIBS@ \
         $(NULL)
 
 component_DATA = \
