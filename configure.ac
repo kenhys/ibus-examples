@@ -14,6 +14,7 @@ AC_PROG_INSTALL
 
 # Checks for libraries.
 PKG_CHECK_MODULES(IBUS, [ibus-1.0])
+PKG_CHECK_MODULES(GTK, [gtk+-x11-3.0 gmodule-2.0])
 
 # Checks for header files.
 
