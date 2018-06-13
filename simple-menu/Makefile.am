@@ -14,6 +14,10 @@ ibus_engine_simplemenu_LDFLAGS = \
         @GTK_LIBS@ \
         $(NULL)
 
+ibus_engine_simplemenu_LDADD = \
+        @GTK_LIBS@ \
+        $(NULL)
+
 component_DATA = \
         simple-menu.xml \
         $(NULL)
