@@ -37,14 +37,34 @@ ibus_simplemenu_engine_class_init (IBusSimpleMenuEngineClass *klass)
   engine_class->process_key_event = ibus_simplemenu_engine_process_key_event;
 }
 
+static IBusPropList *root = NULL;
+static IBusProperty *menu = NULL;
+
 static void
 ibus_simplemenu_engine_init(IBusSimpleMenuEngine *engine)
 {
+  IBusText *label = ibus_text_new_from_static_string("Simple Menu");
+  IBusText *tips = ibus_text_new_from_static_string("");
+  root = ibus_prop_list_new();
+  menu = ibus_property_new("InputMode",
+                           PROP_TYPE_MENU,
+                           label,
+                           "",
+                           tips,
+                           TRUE,
+                           TRUE,
+                           PROP_STATE_UNCHECKED,
+                           NULL);
+  g_object_ref_sink(menu);
+  ibus_prop_list_append(root, menu);
+  ibus_engine_register_properties((IBusEngine*)engine, root);
 }
 
 static void
 ibus_simplemenu_engine_destroy(IBusSimpleMenuEngine *engine)
 {
+  g_object_unref(menu);
+  g_object_unref(root);
   ((IBusObjectClass *)ibus_simplemenu_engine_parent_class)->destroy((IBusObject *)engine);
 }
 
