@@ -6,10 +6,12 @@ ibus_engine_simplemenu_SOURCES = \
 
 ibus_engine_simplemenu_CFLAGS = \
         @IBUS_CFLAGS@ \
+        @GTK_CFLAGS@ \
         $(NULL)
 
 ibus_engine_simplemenu_LDFLAGS = \
         @IBUS_LIBS@ \
+        @GTK_LIBS@ \
         $(NULL)
 
 component_DATA = \

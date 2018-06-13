@@ -1,4 +1,5 @@
 #include <ibus.h>
+#include <glib.h>
 
 typedef struct _IBusSimpleMenuEngine IBusSimpleMenuEngine;
 typedef struct _IBusSimpleMenuEngineClass IBusSimpleMenuEngineClass;
