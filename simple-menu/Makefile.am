@@ -1,7 +1,6 @@
 libexec_PROGRAMS = ibus-engine-simplemenu
 
 ibus_engine_simplemenu_SOURCES = \
-        engine.c engine.h \
         main.c \
         $(NULL)
 
