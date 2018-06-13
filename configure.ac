@@ -4,7 +4,7 @@
 AC_PREREQ([2.69])
 AC_INIT([ibus-examples], [1.0], [kenhys@gmail.com])
 AM_INIT_AUTOMAKE([1.15 foreign])
-AC_CONFIG_SRCDIR([simple-menu/engine.h])
+AC_CONFIG_SRCDIR([simple-menu/main.c])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
