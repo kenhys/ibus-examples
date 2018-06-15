@@ -39,6 +39,7 @@ ibus_simplemenu_engine_class_init (IBusSimpleMenuEngineClass *klass)
 
 static IBusPropList *root = NULL;
 static IBusProperty *menu = NULL;
+static IBusPropList *submenu = NULL;
 
 static void
 ibus_simplemenu_engine_init(IBusSimpleMenuEngine *engine)
@@ -46,6 +47,7 @@ ibus_simplemenu_engine_init(IBusSimpleMenuEngine *engine)
   IBusText *label = ibus_text_new_from_static_string("Simple Menu");
   IBusText *tips = ibus_text_new_from_static_string("");
   root = ibus_prop_list_new();
+  submenu = ibus_prop_list_new();
   menu = ibus_property_new("InputMode",
                            PROP_TYPE_MENU,
                            label,
@@ -54,9 +56,22 @@ ibus_simplemenu_engine_init(IBusSimpleMenuEngine *engine)
                            TRUE,
                            TRUE,
                            PROP_STATE_UNCHECKED,
-                           NULL);
+                           submenu);
   g_object_ref_sink(menu);
   ibus_prop_list_append(root, menu);
+
+  label = ibus_text_new_from_static_string("Menu A");
+  IBusProperty *prop = ibus_property_new("Menu A KEY",
+                                         PROP_TYPE_MENU,
+                                         label,
+                                         "",
+                                         tips,
+                                         TRUE,
+                                         TRUE,
+                                         PROP_STATE_UNCHECKED,
+                                         NULL);
+  ibus_prop_list_append(submenu, prop);
+
   ibus_engine_register_properties((IBusEngine*)engine, root);
 }
 
