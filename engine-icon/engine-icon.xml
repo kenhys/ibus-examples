@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+  <name>com.example.IBus.ENGINEICON</name>
+  <description>Engine Icon Component</description>
+  <exec>/usr/libexec/ibus-engine-simplemenu</exec>
+  <version>1.0.0</version>
+  <author>Kentaro Hayashi</author>
+  <license>MIT</license>
+  <homepage>https://github.com/kenhys/ibus-examples</homepage>
+  <textdomain>ibus-engine-engineicon</textdomain>
+
+  <engines>
+    <engine>
+      <name>engineicon</name>
+      <language>ja</language>
+      <license>MIT</license>
+      <author>Kentaro Hayashi</author>
+      <icon>/usr/share/ibus-mozc/product_icon.png</icon>
+      <layout>default</layout>
+      <longname>EngineIcon</longname>
+      <description>IBUS engine icon</description>
+      <rank>50</rank>
+    </engine>
+  </engines>
+</component>
