@@ -166,20 +166,20 @@ int main(int argc, char *argv[])
 
   IBusFactory *factory = ibus_factory_new(ibus_bus_get_connection(bus));
   g_object_ref_sink(factory);
-  ibus_factory_add_engine(factory, "ibus-hybrid", IBUS_TYPE_HYBRID_ENGINE);
+  ibus_factory_add_engine(factory, "hybrid", IBUS_TYPE_HYBRID_ENGINE);
 
   if (execute_by_ibus) {
     ibus_bus_request_name(bus, "com.example.IBus.HYBRID", 0);
   } else {
     IBusComponent *component = ibus_component_new("com.example.IBus.HYBRID",
-                                                  "Hybrid for iBus",
+                                                  "Hybrid Component",
                                                   "1.0",
                                                   "MIT",
                                                   "Kentaro Hayashi",
                                                   "https://github.com/kenhys/ibus-examples",
                                                   "",
-                                                  "ibus-hybrid");
-    IBusEngineDesc *description = ibus_engine_desc_new("ibus-hybrid",
+                                                  "ibus-engine-hybrid");
+    IBusEngineDesc *description = ibus_engine_desc_new("hybrid",
                                                        "Hybrid",
                                                        "Hybrid (Japanese Input Method)",
                                                        "ja",
