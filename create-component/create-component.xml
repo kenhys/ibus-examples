@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+  <name>com.example.IBus.CREATECOMPONENT</name>
+  <description>Create Component</description>
+  <exec>/usr/libexec/ibus-engine-createcomponent</exec>
+  <version>1.0.0</version>
+  <author>Kentaro Hayashi</author>
+  <license>MIT</license>
+  <homepage>https://github.com/kenhys/ibus-examples</homepage>
+  <textdomain>ibus-engine-createcomponent</textdomain>
+
+  <engines>
+    <engine>
+      <name>createcomponent</name>
+      <language>ja</language>
+      <license>MIT</license>
+      <author>Kentaro Hayashi</author>
+      <icon></icon>
+      <layout>default</layout>
+      <longname>CreateComponent</longname>
+      <description>IBUS create component</description>
+      <rank>50</rank>
+    </engine>
+  </engines>
+</component>
