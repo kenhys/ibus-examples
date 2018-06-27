@@ -5,5 +5,6 @@ SUBDIRS = \
 	create-component \
 	engine-icon \
 	hybrid-engine \
+	nested-menu \
 	simple-menu \
 	$(NULL)
