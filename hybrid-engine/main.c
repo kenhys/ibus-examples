@@ -29,6 +29,7 @@ GType ibus_hybrid_engine_get_type(void);
 static void
 ibus_hybrid_engine_class_init(IBusHybridEngineClass *klass)
 {
+  g_debug(G_STRFUNC);
   IBusObjectClass *ibus_object_class = IBUS_OBJECT_CLASS (klass);
   IBusEngineClass *engine_class = IBUS_ENGINE_CLASS (klass);
 
@@ -44,6 +45,7 @@ static IBusPropList *submenu = NULL;
 static void
 ibus_hybrid_engine_init(IBusHybridEngine *engine)
 {
+  g_debug(G_STRFUNC);
   IBusText *label = ibus_text_new_from_static_string("Create Component");
   IBusText *tips = ibus_text_new_from_static_string("");
   root = ibus_prop_list_new();
@@ -78,6 +80,7 @@ ibus_hybrid_engine_init(IBusHybridEngine *engine)
 static void
 ibus_hybrid_engine_destroy(IBusHybridEngine *engine)
 {
+  g_debug(G_STRFUNC);
   g_object_unref(menu);
   g_object_unref(root);
   ((IBusObjectClass *)ibus_hybrid_engine_parent_class)->destroy((IBusObject *)engine);
