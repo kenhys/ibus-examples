@@ -56,7 +56,7 @@ static void
 ibus_hybrid_engine_init(IBusHybridEngine *engine)
 {
   g_debug(G_STRFUNC);
-  IBusText *label = ibus_text_new_from_static_string("Create Component");
+  IBusText *label = ibus_text_new_from_static_string("Menu A");
   root = ibus_prop_list_new();
   g_object_ref_sink(root);;
   submenu = ibus_prop_list_new();
@@ -72,8 +72,8 @@ ibus_hybrid_engine_init(IBusHybridEngine *engine)
   g_object_ref_sink(menu);
   ibus_prop_list_append(root, menu);
 
-  label = ibus_text_new_from_static_string("Menu A");
-  IBusProperty *prop = ibus_property_new("Menu A KEY",
+  label = ibus_text_new_from_static_string("SubMenu A");
+  IBusProperty *prop = ibus_property_new("SubMenu A KEY",
                                          PROP_TYPE_MENU,
                                          label,
                                          NULL,
