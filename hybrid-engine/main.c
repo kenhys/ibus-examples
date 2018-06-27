@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
                                                   "https://github.com/kenhys/ibus-examples",
                                                   "",
                                                   "ibus-hybrid");
-    IBusEngineDesc *description = ibus_engine_desc_new("hybrid",
+    IBusEngineDesc *description = ibus_engine_desc_new("ibus-hybrid",
                                                        "Hybrid",
                                                        "Hybrid (Japanese Input Method)",
                                                        "ja",

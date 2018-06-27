@@ -11,7 +11,7 @@
 
   <engines>
     <engine>
-      <name>hybrid</name>
+      <name>ibus-hybrid</name>
       <language>ja</language>
       <license>MIT</license>
       <author>Kentaro Hayashi</author>
