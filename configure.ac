@@ -23,6 +23,7 @@ PKG_CHECK_MODULES(GTK, [gtk+-x11-3.0 gmodule-2.0])
 # Checks for library functions.
 
 AC_CONFIG_FILES([Makefile
+                 change-property/Makefile
                  create-component/Makefile
                  hybrid-engine/Makefile
                  simple-menu/Makefile
