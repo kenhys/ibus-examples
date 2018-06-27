@@ -15,6 +15,12 @@ struct _IBusHybridEngineClass {
 static void ibus_hybrid_engine_class_init(IBusHybridEngineClass	*klass);
 static void ibus_hybrid_engine_init(IBusHybridEngine *engine);
 static void ibus_hybrid_engine_destroy(IBusHybridEngine *engine);
+
+static void focus_in(IBusEngine *engine);
+static void focus_out(IBusEngine *engine);
+static void reset(IBusEngine *engine);
+static void enable(IBusEngine *engine);
+static void disable(IBusEngine *engine);
 static gboolean process_key_event(IBusEngine *engine,
                                   guint keyval,
                                   guint keycode,
@@ -36,6 +42,10 @@ ibus_hybrid_engine_class_init(IBusHybridEngineClass *klass)
   ibus_object_class->destroy = (IBusObjectDestroyFunc)ibus_hybrid_engine_destroy;
 
   engine_class->process_key_event = process_key_event;
+  engine_class->enable = enable;
+  engine_class->disable = disable;
+  engine_class->focus_in = focus_in;
+  engine_class->focus_out = focus_out;
 }
 
 static IBusPropList *root = NULL;
@@ -92,8 +102,34 @@ process_key_event(IBusEngine *engine,
                   guint       keycode,
                   guint       modifiers)
 {
+  g_debug(G_STRFUNC);
   return FALSE;
 }
+
+static void
+enable(IBusEngine *engine)
+{
+  g_debug(G_STRFUNC);
+}
+
+static void
+disable(IBusEngine *engine)
+{
+  g_debug(G_STRFUNC);
+}
+
+static void
+focus_in(IBusEngine *engine)
+{
+  g_debug(G_STRFUNC);
+}
+
+static void
+focus_out(IBusEngine *engine)
+{
+  g_debug(G_STRFUNC);
+}
+
 
 static gboolean execute_by_ibus = FALSE;
 static const GOptionEntry options[] =
