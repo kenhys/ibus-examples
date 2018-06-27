@@ -59,6 +59,7 @@ ibus_hybrid_engine_init(IBusHybridEngine *engine)
   IBusText *label = ibus_text_new_from_static_string("Create Component");
   IBusText *tips = ibus_text_new_from_static_string("");
   root = ibus_prop_list_new();
+  g_object_ref_sink(root);;
   submenu = ibus_prop_list_new();
   menu = ibus_property_new("InputMode",
                            PROP_TYPE_MENU,
