@@ -92,8 +92,14 @@ static void
 ibus_hybrid_engine_destroy(IBusHybridEngine *engine)
 {
   g_debug(G_STRFUNC);
-  g_object_unref(menu);
-  g_object_unref(root);
+  if (menu) {
+    g_object_unref(menu);
+    menu = NULL;
+  }
+  if (root) {
+    g_object_unref(root);
+    root = NULL;
+  }
   ((IBusObjectClass *)ibus_hybrid_engine_parent_class)->destroy((IBusObject *)engine);
 }
 
