@@ -85,7 +85,6 @@ ibus_hybrid_engine_init(IBusHybridEngine *engine)
                                          NULL);
   ibus_prop_list_append(submenu, prop);
 
-  ibus_engine_register_properties((IBusEngine*)engine, root);
 }
 
 static void
@@ -129,6 +128,9 @@ static void
 focus_in(IBusEngine *engine)
 {
   g_debug(G_STRFUNC);
+
+  // It should not be called in engine_init.
+  ibus_engine_register_properties((IBusEngine*)engine, root);
 }
 
 static void
