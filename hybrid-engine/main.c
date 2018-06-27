@@ -15,11 +15,11 @@ struct _IBusHybridEngineClass {
 static void ibus_hybrid_engine_class_init(IBusHybridEngineClass	*klass);
 static void ibus_hybrid_engine_init(IBusHybridEngine *engine);
 static void ibus_hybrid_engine_destroy(IBusHybridEngine *engine);
-static gboolean
-ibus_hybrid_engine_process_key_event(IBusEngine *engine,
-                                     guint keyval,
-                                     guint keycode,
-                                     guint modifiers);
+static gboolean process_key_event(IBusEngine *engine,
+                                  guint keyval,
+                                  guint keycode,
+                                  guint modifiers);
+
 G_DEFINE_TYPE(IBusHybridEngine, ibus_hybrid_engine, IBUS_TYPE_ENGINE)
 
 #define IBUS_TYPE_HYBRID_ENGINE (ibus_hybrid_engine_get_type())
@@ -35,7 +35,7 @@ ibus_hybrid_engine_class_init(IBusHybridEngineClass *klass)
 
   ibus_object_class->destroy = (IBusObjectDestroyFunc)ibus_hybrid_engine_destroy;
 
-  engine_class->process_key_event = ibus_hybrid_engine_process_key_event;
+  engine_class->process_key_event = process_key_event;
 }
 
 static IBusPropList *root = NULL;
@@ -87,10 +87,10 @@ ibus_hybrid_engine_destroy(IBusHybridEngine *engine)
 }
 
 static gboolean
-ibus_hybrid_engine_process_key_event(IBusEngine *engine,
-                                         guint       keyval,
-                                         guint       keycode,
-                                         guint       modifiers)
+process_key_event(IBusEngine *engine,
+                  guint       keyval,
+                  guint       keycode,
+                  guint       modifiers)
 {
   return FALSE;
 }
