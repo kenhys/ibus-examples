@@ -98,8 +98,8 @@ ibus_hybrid_engine_process_key_event(IBusEngine *engine,
 static gboolean execute_by_ibus = FALSE;
 static const GOptionEntry options[] =
 {
-    { "ibus", 'i', 0, G_OPTION_ARG_NONE, &execute_by_ibus, "Component is executed by IBus", NULL },
-    { NULL },
+  { "ibus", 'i', 0, G_OPTION_ARG_NONE, &execute_by_ibus, "Component is executed by IBus", NULL },
+  { NULL },
 };
   
 int main(int argc, char *argv[])
