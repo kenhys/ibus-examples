@@ -92,7 +92,7 @@ ibus_hybrid_engine_process_key_event(IBusEngine *engine,
                                          guint       keycode,
                                          guint       modifiers)
 {
-    return FALSE;
+  return FALSE;
 }
 
 static gboolean execute_by_ibus = FALSE;
