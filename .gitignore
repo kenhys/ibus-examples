@@ -10,3 +10,7 @@ depcomp
 m4
 missing
 
+*.o
+Makefile
+.deps
+ibus-engine-*
