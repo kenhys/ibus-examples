@@ -24,6 +24,7 @@ PKG_CHECK_MODULES(GTK, [gtk+-x11-3.0 gmodule-2.0])
 
 AC_CONFIG_FILES([Makefile
                  create-component/Makefile
+                 hybrid-engine/Makefile
                  simple-menu/Makefile
                  engine-icon/Makefile])
 AC_OUTPUT
