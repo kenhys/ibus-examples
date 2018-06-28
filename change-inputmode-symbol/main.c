@@ -55,7 +55,7 @@ static void
 ibus_changeinputmodesymbol_engine_init(IBusChangeInputModeSymbolEngine *engine)
 {
   g_debug(G_STRFUNC);
-  IBusText *label = ibus_text_new_from_static_string("Change Icon");
+  IBusText *label = ibus_text_new_from_static_string("Change Symbol");
   root = ibus_prop_list_new();
   g_object_ref_sink(root);;
   submenu = ibus_prop_list_new();
@@ -71,7 +71,7 @@ ibus_changeinputmodesymbol_engine_init(IBusChangeInputModeSymbolEngine *engine)
   g_object_ref_sink(menu);
   ibus_prop_list_append(root, menu);
 
-  label = ibus_text_new_from_static_string("Set Icon A");
+  label = ibus_text_new_from_static_string("Set Symbol A");
   IBusProperty *prop = ibus_property_new("MENUA",
                                          PROP_TYPE_NORMAL,
                                          label,
@@ -84,7 +84,7 @@ ibus_changeinputmodesymbol_engine_init(IBusChangeInputModeSymbolEngine *engine)
   g_object_ref_sink(prop);
   ibus_prop_list_append(submenu, prop);
 
-  label = ibus_text_new_from_static_string("Set Icon B");
+  label = ibus_text_new_from_static_string("Set Symbol B");
   prop = ibus_property_new("MENUB",
                            PROP_TYPE_NORMAL,
                            label,
