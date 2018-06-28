@@ -44,6 +44,7 @@ ibus_changeinputmodeicon_engine_class_init(IBusChangeInputModeIconEngineClass *k
   engine_class->disable = disable;
   engine_class->focus_in = focus_in;
   engine_class->focus_out = focus_out;
+  engine_class->property_activate = property_activate;
 }
 
 static IBusPropList *root = NULL;
