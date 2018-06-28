@@ -154,6 +154,12 @@ enable(IBusEngine *engine)
 {
   g_debug(G_STRFUNC);
 
+  if (menu) {
+    IBusText *symbol;
+    symbol = ibus_text_new_from_static_string("-");
+    ibus_property_set_symbol(menu, symbol);
+  }
+
   // It should not be called in engine_init.
   ibus_engine_register_properties((IBusEngine*)engine, root);
 }
