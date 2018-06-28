@@ -122,8 +122,10 @@ property_activate(IBusEngine *engine,
   g_debug(G_STRFUNC);
 
   if (!strcmp(prop_name, "MENUA")) {
+    g_debug("%s:%s Set %s", G_STRLOC, G_STRFUNC, SAMPLE_A_ICON);
     ibus_property_set_icon(menu, SAMPLE_A_ICON);
   } else if (!strcmp(prop_name, "MENUB")) {
+    g_debug("%s:%s Set %s", G_STRLOC, G_STRFUNC, SAMPLE_B_ICON);
     ibus_property_set_icon(menu, SAMPLE_B_ICON);
   }
   ibus_engine_update_property(engine, menu);
