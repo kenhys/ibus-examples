@@ -25,6 +25,7 @@ PKG_CHECK_MODULES(GTK, [gtk+-x11-3.0 gmodule-2.0])
 AC_CONFIG_FILES([Makefile
                  change-property/Makefile
                  change-inputmode-icon/Makefile
+                 change-inputmode-symbol/Makefile
                  create-component/Makefile
                  hybrid-engine/Makefile
                  nested-menu/Makefile

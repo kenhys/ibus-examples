@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+  <name>com.example.IBus.CHANGEINPUTMODESYMBOL</name>
+  <description>Change Input Mode Symbol</description>
+  <exec>/usr/libexec/ibus-engine-changeinputmodesymbol --ibus</exec>
+  <version>1.0.0</version>
+  <author>Kentaro Hayashi</author>
+  <license>MIT</license>
+  <homepage>https://github.com/kenhys/ibus-examples</homepage>
+  <textdomain>ibus-engine-changeinputmodesymbol</textdomain>
+
+  <engines>
+    <engine>
+      <name>changeinputmodesymbol</name>
+      <language>ja</language>
+      <license>MIT</license>
+      <author>Kentaro Hayashi</author>
+      <icon></icon>
+      <layout>default</layout>
+      <longname>ChangeInputModeSymbol</longname>
+      <description>Change Input Mode Symbol (Japanese Input Method)</description>
+      <rank>50</rank>
+    </engine>
+  </engines>
+</component>
