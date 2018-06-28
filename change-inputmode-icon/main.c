@@ -22,8 +22,8 @@ static void reset(IBusEngine *engine);
 static void enable(IBusEngine *engine);
 static void disable(IBusEngine *engine);
 static void property_activate(IBusEngine *engine,
-                              const gchar   *prop_name,
-                              guint          prop_state);
+                              const gchar *prop_name,
+                              guint prop_state);
 
 G_DEFINE_TYPE(IBusChangeInputModeIconEngine, ibus_changeinputmodeicon_engine, IBUS_TYPE_ENGINE)
 
