@@ -81,6 +81,7 @@ ibus_changeinputmodeicon_engine_init(IBusChangeInputModeIconEngine *engine)
                                          TRUE,
                                          PROP_STATE_UNCHECKED,
                                          NULL);
+  g_object_ref_sink(prop);
   ibus_prop_list_append(submenu, prop);
 
   label = ibus_text_new_from_static_string("Set Icon B");
@@ -93,6 +94,7 @@ ibus_changeinputmodeicon_engine_init(IBusChangeInputModeIconEngine *engine)
                            TRUE,
                            PROP_STATE_UNCHECKED,
                            NULL);
+  g_object_ref_sink(prop);
   ibus_prop_list_append(submenu, prop);
 
 }
