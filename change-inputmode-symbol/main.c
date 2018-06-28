@@ -135,12 +135,14 @@ property_activate(IBusEngine *engine,
 
   IBusText *symbol;
   if (!strcmp(prop_name, "MENUA")) {
-    g_debug("%s:%s set symbol(A) to InputMode menu", G_STRLOC, G_STRFUNC);
+    g_debug("%s:%s %s: set symbol(A) to InputMode menu",
+            G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("A");
     ibus_property_set_symbol(menu, symbol);
     ibus_engine_update_property(engine, menu);
   } else if (!strcmp(prop_name, "MENUB")) {
-    g_debug("%s:%s set symbol(B) to InputMode menu", G_STRLOC, G_STRFUNC);
+    g_debug("%s:%s %s: set symbol(B) to InputMode menu",
+            G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("B");
     ibus_property_set_symbol(menu, symbol);
     ibus_engine_update_property(engine, menu);
