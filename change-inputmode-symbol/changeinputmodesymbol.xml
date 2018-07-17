@@ -17,6 +17,7 @@
       <author>Kentaro Hayashi</author>
       <icon></icon>
       <layout>default</layout>
+      <icon_prop_key>InputMode</icon_prop_key>
       <longname>ChangeInputModeSymbol</longname>
       <description>Change Input Mode Symbol (Japanese Input Method)</description>
       <rank>50</rank>
