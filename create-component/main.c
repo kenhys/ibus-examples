@@ -123,6 +123,7 @@ int main(int argc, char *argv[])
                                                      "default");
   ibus_component_add_engine(component, description);
   ibus_bus_register_component(bus, component);
+  g_object_unref(component);
 
   ibus_main();
 
