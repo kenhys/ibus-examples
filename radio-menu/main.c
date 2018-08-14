@@ -154,17 +154,21 @@ property_activate(IBusEngine *engine,
             G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("A");
     ibus_property_set_symbol(menu, symbol);
+    ibus_engine_update_property(engine, menu);
     ibus_property_set_state(menua, PROP_STATE_CHECKED);
     ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
-    ibus_engine_update_property(engine, menu);
+    ibus_engine_update_property(engine, menua);
+    ibus_engine_update_property(engine, menub);
   } else if (!strcmp(prop_name, "MENUB")) {
     g_debug("%s:%s %s: set symbol(B) to InputMode menu",
             G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("B");
     ibus_property_set_symbol(menu, symbol);
+    ibus_engine_update_property(engine, menu);
     ibus_property_set_state(menua, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menub, PROP_STATE_CHECKED);
-    ibus_engine_update_property(engine, menu);
+    ibus_engine_update_property(engine, menua);
+    ibus_engine_update_property(engine, menub);
   }
 }
 
