@@ -57,7 +57,7 @@ static void
 ibus_radiomenu_engine_init(IBusRadioMenuEngine *engine)
 {
   g_debug(G_STRFUNC);
-  IBusText *label = ibus_text_new_from_static_string("Change Symbol");
+  IBusText *label = ibus_text_new_from_static_string("Radio Menu");
   root = ibus_prop_list_new();
   g_object_ref_sink(root);;
   submenu = ibus_prop_list_new();
@@ -101,7 +101,7 @@ ibus_radiomenu_engine_init(IBusRadioMenuEngine *engine)
   g_object_ref_sink(menub);
   ibus_prop_list_append(submenu, menub);
 
-  label = ibus_text_new_from_static_string("Dummy Tool");
+  label = ibus_text_new_from_static_string("Radio Menu Test");
   IBusProperty *prop = ibus_property_new("TOOL",
                                          PROP_TYPE_MENU,
                                          label,
