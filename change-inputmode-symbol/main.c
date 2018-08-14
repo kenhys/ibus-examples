@@ -163,8 +163,6 @@ enable(IBusEngine *engine)
     ibus_property_set_symbol(menu, symbol);
   }
 
-  // It should not be called in engine_init.
-  ibus_engine_register_properties((IBusEngine*)engine, root);
 }
 
 static void
@@ -177,6 +175,9 @@ static void
 focus_in(IBusEngine *engine)
 {
   g_debug(G_STRFUNC);
+
+  // It should not be called in engine_init.
+  ibus_engine_register_properties((IBusEngine*)engine, root);
 }
 
 static void
