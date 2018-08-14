@@ -29,6 +29,7 @@ AC_CONFIG_FILES([Makefile
                  create-component/Makefile
                  hybrid-engine/Makefile
                  nested-menu/Makefile
+                 radio-menu/Makefile
                  simple-menu/Makefile
                  engine-icon/Makefile])
 AC_OUTPUT

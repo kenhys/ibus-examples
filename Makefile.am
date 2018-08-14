@@ -8,5 +8,6 @@ SUBDIRS = \
 	engine-icon \
 	hybrid-engine \
 	nested-menu \
+	radio-menu \
 	simple-menu \
 	$(NULL)
