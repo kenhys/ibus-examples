@@ -30,6 +30,7 @@ AC_CONFIG_FILES([Makefile
                  hybrid-engine/Makefile
                  nested-menu/Makefile
                  radio-menu/Makefile
+                 radio-menu-delay/Makefile
                  radio-menu-flickered/Makefile
                  simple-menu/Makefile
                  engine-icon/Makefile])

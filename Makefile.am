@@ -9,6 +9,7 @@ SUBDIRS = \
 	hybrid-engine \
 	nested-menu \
 	radio-menu \
+	radio-menu-delay \
 	radio-menu-flickered \
 	simple-menu \
 	$(NULL)
