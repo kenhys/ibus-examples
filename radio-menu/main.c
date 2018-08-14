@@ -50,6 +50,8 @@ ibus_radiomenu_engine_class_init(IBusRadioMenuEngineClass *klass)
 static IBusPropList *root = NULL;
 static IBusProperty *menu = NULL;
 static IBusPropList *submenu = NULL;
+static IBusProperty *menua = NULL;
+static IBusProperty *menub = NULL;
 
 static void
 ibus_radiomenu_engine_init(IBusRadioMenuEngine *engine)
@@ -74,8 +76,34 @@ ibus_radiomenu_engine_init(IBusRadioMenuEngine *engine)
   ibus_prop_list_append(root, menu);
 
   label = ibus_text_new_from_static_string("Set Symbol A");
-  IBusProperty *prop = ibus_property_new("MENUA",
-                                         PROP_TYPE_RADIO,
+  menua = ibus_property_new("MENUA",
+                            PROP_TYPE_RADIO,
+                            label,
+                            NULL,
+                            NULL,
+                            TRUE,
+                            TRUE,
+                            PROP_STATE_UNCHECKED,
+                            NULL);
+  g_object_ref_sink(menua);
+  ibus_prop_list_append(submenu, menua);
+
+  label = ibus_text_new_from_static_string("Set Symbol B");
+  menub = ibus_property_new("MENUB",
+                            PROP_TYPE_RADIO,
+                            label,
+                            NULL,
+                            NULL,
+                            TRUE,
+                            TRUE,
+                            PROP_STATE_UNCHECKED,
+                            NULL);
+  g_object_ref_sink(menub);
+  ibus_prop_list_append(submenu, menub);
+
+  label = ibus_text_new_from_static_string("Dummy Tool");
+  IBusProperty *prop = ibus_property_new("TOOL",
+                                         PROP_TYPE_MENU,
                                          label,
                                          NULL,
                                          NULL,
@@ -83,32 +111,6 @@ ibus_radiomenu_engine_init(IBusRadioMenuEngine *engine)
                                          TRUE,
                                          PROP_STATE_UNCHECKED,
                                          NULL);
-  g_object_ref_sink(prop);
-  ibus_prop_list_append(submenu, prop);
-
-  label = ibus_text_new_from_static_string("Set Symbol B");
-  prop = ibus_property_new("MENUB",
-                           PROP_TYPE_RADIO,
-                           label,
-                           NULL,
-                           NULL,
-                           TRUE,
-                           TRUE,
-                           PROP_STATE_UNCHECKED,
-                           NULL);
-  g_object_ref_sink(prop);
-  ibus_prop_list_append(submenu, prop);
-
-  label = ibus_text_new_from_static_string("Dummy Tool");
-  prop = ibus_property_new("TOOL",
-                           PROP_TYPE_MENU,
-                           label,
-                           NULL,
-                           NULL,
-                           TRUE,
-                           TRUE,
-                           PROP_STATE_UNCHECKED,
-                           NULL);
   g_object_ref_sink(prop);
   ibus_prop_list_append(root, prop);
 }
@@ -123,6 +125,14 @@ ibus_radiomenu_engine_destroy(IBusRadioMenuEngine *engine)
   }
   if (root) {
     g_object_unref(root);
+    root = NULL;
+  }
+  if (menua) {
+    g_object_unref(menua);
+    root = NULL;
+  }
+  if (menub) {
+    g_object_unref(menub);
     root = NULL;
   }
   ((IBusObjectClass *)ibus_radiomenu_engine_parent_class)->destroy((IBusObject *)engine);
@@ -144,12 +154,16 @@ property_activate(IBusEngine *engine,
             G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("A");
     ibus_property_set_symbol(menu, symbol);
+    ibus_property_set_state(menua, PROP_STATE_CHECKED);
+    ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
     ibus_engine_update_property(engine, menu);
   } else if (!strcmp(prop_name, "MENUB")) {
     g_debug("%s:%s %s: set symbol(B) to InputMode menu",
             G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("B");
     ibus_property_set_symbol(menu, symbol);
+    ibus_property_set_state(menua, PROP_STATE_UNCHECKED);
+    ibus_property_set_state(menub, PROP_STATE_CHECKED);
     ibus_engine_update_property(engine, menu);
   }
 }
