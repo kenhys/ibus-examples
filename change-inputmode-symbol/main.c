@@ -68,6 +68,8 @@ ibus_changeinputmodesymbol_engine_init(IBusChangeInputModeSymbolEngine *engine)
                            TRUE,
                            PROP_STATE_UNCHECKED,
                            submenu);
+  label = ibus_text_new_from_static_string("-");
+  ibus_property_set_symbol(menu, label);
   g_object_ref_sink(menu);
   ibus_prop_list_append(root, menu);
 
