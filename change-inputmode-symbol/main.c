@@ -133,7 +133,7 @@ property_activate(IBusEngine *engine,
 {
   g_debug(G_STRFUNC);
 
-  g_debug("%s:%s %s: prop_name: %s prop_state: 0x%08x",
+  g_debug("%s:%s: prop_name: %s prop_state: 0x%08x",
           G_STRLOC, G_STRFUNC, prop_name, prop_state);
 
   IBusText *symbol;
