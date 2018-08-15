@@ -183,7 +183,6 @@ property_activate(IBusEngine *engine,
     ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menuc, PROP_STATE_UNCHECKED);
     ibus_engine_update_property(engine, menua);
-    ibus_engine_update_property(engine, menub);
   } else if (!strcmp(prop_name, "MENUB")) {
     g_debug("%s:%s %s: set symbol(B) to InputMode menu",
             G_STRLOC, G_STRFUNC, prop_name);
@@ -192,7 +191,6 @@ property_activate(IBusEngine *engine,
     ibus_engine_update_property(engine, menu);
     ibus_property_set_state(menua, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menub, PROP_STATE_CHECKED);
-    ibus_engine_update_property(engine, menua);
     ibus_property_set_state(menuc, PROP_STATE_UNCHECKED);
     ibus_engine_update_property(engine, menub);
   } else if (!strcmp(prop_name, "MENUC")) {
