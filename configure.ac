@@ -32,6 +32,7 @@ AC_CONFIG_FILES([Makefile
                  radio-menu/Makefile
                  radio-menu-delay/Makefile
                  radio-menu-flickered/Makefile
+                 radio-menu-stall/Makefile
                  simple-menu/Makefile
                  engine-icon/Makefile])
 AC_OUTPUT
