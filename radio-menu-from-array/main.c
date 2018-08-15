@@ -282,16 +282,16 @@ int main(int argc, char *argv[])
     ibus_bus_request_name(bus, "com.example.IBus.RADIOMENUFROMARRAY", 0);
   } else {
     IBusComponent *component = ibus_component_new("com.example.IBus.RADIOMENUFROMARRAY",
-                                                  "Radio Menu",
+                                                  "Radio Menu From Array",
                                                   "1.0",
                                                   "MIT",
                                                   "Kentaro Hayashi",
                                                   "https://github.com/kenhys/ibus-examples",
                                                   "",
                                                   "ibus-engine-radiomenufromarray");
-    IBusEngineDesc *description = ibus_engine_desc_new("radiomenuarray",
+    IBusEngineDesc *description = ibus_engine_desc_new("radiomenufromarray",
                                                        "RadioMenuFromArray",
-                                                       "Radio Menu Array (Japanese Input Method)",
+                                                       "Radio Menu From Array (Japanese Input Method)",
                                                        "ja",
                                                        "MIT",
                                                        "Kentaro Hayashi",
