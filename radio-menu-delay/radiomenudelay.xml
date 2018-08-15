@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component>
   <name>com.example.IBus.RADIOMENUDELAY</name>
-  <description>Radio Menu</description>
+  <description>Radio Menu Delay</description>
   <exec>/usr/libexec/ibus-engine-radiomenudelay --ibus</exec>
   <version>1.0.0</version>
   <author>Kentaro Hayashi</author>
