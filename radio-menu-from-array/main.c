@@ -130,11 +130,11 @@ ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
         menua = prop;
         g_object_ref_sink(menua);
         break;
-      case 1:
+      case 2:
         menub = prop;
         g_object_ref_sink(menub);
         break;
-      case 1:
+      case 3:
         menuc = prop;
         g_object_ref_sink(menuc);
         break;
