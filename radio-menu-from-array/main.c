@@ -115,6 +115,8 @@ ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
                                TRUE,
                                prop_state,
                                NULL);
+      menu = prop;
+      g_object_ref_sink(menu);
     } else {
       prop = ibus_property_new(menu.key,
                                PROP_TYPE_RADIO,
