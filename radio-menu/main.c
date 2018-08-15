@@ -52,6 +52,7 @@ static IBusProperty *menu = NULL;
 static IBusPropList *submenu = NULL;
 static IBusProperty *menua = NULL;
 static IBusProperty *menub = NULL;
+static IBusProperty *menuc = NULL;
 
 static void
 ibus_radiomenu_engine_init(IBusRadioMenuEngine *engine)
@@ -101,6 +102,19 @@ ibus_radiomenu_engine_init(IBusRadioMenuEngine *engine)
   g_object_ref_sink(menub);
   ibus_prop_list_append(submenu, menub);
 
+  label = ibus_text_new_from_static_string("Set Symbol C");
+  menub = ibus_property_new("MENUC",
+                            PROP_TYPE_RADIO,
+                            label,
+                            NULL,
+                            NULL,
+                            TRUE,
+                            TRUE,
+                            PROP_STATE_UNCHECKED,
+                            NULL);
+  g_object_ref_sink(menuc);
+  ibus_prop_list_append(submenu, menuc);
+
   label = ibus_text_new_from_static_string("Radio Menu Test");
   IBusProperty *prop = ibus_property_new("TOOL",
                                          PROP_TYPE_MENU,
@@ -134,6 +148,9 @@ ibus_radiomenu_engine_destroy(IBusRadioMenuEngine *engine)
   if (menub) {
     g_object_unref(menub);
     root = NULL;
+  if (menuc) {
+    g_object_unref(menuc);
+    menuc = NULL;
   }
   ((IBusObjectClass *)ibus_radiomenu_engine_parent_class)->destroy((IBusObject *)engine);
 }
@@ -175,6 +192,16 @@ property_activate(IBusEngine *engine,
     ibus_property_set_state(menub, PROP_STATE_CHECKED);
     ibus_engine_update_property(engine, menua);
     ibus_engine_update_property(engine, menub);
+  } else if (!strcmp(prop_name, "MENUC")) {
+    g_debug("%s:%s %s: set symbol(C) to InputMode menu",
+            G_STRLOC, G_STRFUNC, prop_name);
+    symbol = ibus_text_new_from_static_string("C");
+    ibus_property_set_symbol(menu, symbol);
+    ibus_engine_update_property(engine, menu);
+    ibus_property_set_state(menua, PROP_STATE_UNCHECKED);
+    ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
+    ibus_property_set_state(menuc, PROP_STATE_CHECKED);
+    ibus_engine_update_property(engine, menuc);
   }
 }
 
