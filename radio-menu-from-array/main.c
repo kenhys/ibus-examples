@@ -99,14 +99,14 @@ ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
   IBusProperty *prop = NULL;
     
   for (guint i = 0; i < G_N_ELEMENTS(menus); i++) {
-    IBusRadioMenuFromArrayMenuProperty menu = menus[i];
-    IBusText *label = ibus_text_new_from_static_string(menu.label);
+    IBusRadioMenuFromArrayMenuProperty menuitem = menus[i];
+    IBusText *label = ibus_text_new_from_static_string(menuitem.label);
     IBusPropType prop_type = PROP_TYPE_NORMAL;
     IBusPropState prop_state = PROP_STATE_UNCHECKED;
     gboolean sensitive = TRUE;
-    if (menu.id == 0) {
+    if (menuitem.id == 0) {
       /* parent menu */
-      prop = ibus_property_new(menu.key,
+      prop = ibus_property_new(menuitem.key,
                                PROP_TYPE_MENU,
                                label,
                                NULL,
@@ -118,7 +118,7 @@ ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
       menu = prop;
       g_object_ref_sink(menu);
     } else {
-      prop = ibus_property_new(menu.key,
+      prop = ibus_property_new(menuitem.key,
                                PROP_TYPE_RADIO,
                                label,
                                NULL,
@@ -127,7 +127,7 @@ ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
                                TRUE,
                                prop_state,
                                NULL);
-      switch (menu.id) {
+      switch (menuitem.id) {
       case 1:
         menua = prop;
         g_object_ref_sink(menua);
@@ -144,7 +144,7 @@ ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
         break;
       }
     }
-    if (!menu.parent_key) {
+    if (!menuitem.parent_key) {
       parent = ibus_prop_list_new();
       ibus_property_set_sub_props(prop, parent);
       ibus_prop_list_append(root, prop);
