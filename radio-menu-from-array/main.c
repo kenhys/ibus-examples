@@ -54,79 +54,86 @@ static IBusProperty *menua = NULL;
 static IBusProperty *menub = NULL;
 static IBusProperty *menuc = NULL;
 
+typedef struct _IBusRadioMenuFromArrayMenuProperty {
+    guint id;
+    const char *key;
+    const char *label;
+    const char *parent_key;
+} IBusRadioMenuFromArrayMenuProperty;
+
+static IBusRadioMenuFromArrayMenuProperty menus[] = {
+  {
+    0,
+    "InputMode",
+    "RadioMenuFromArray Test",
+    0
+  },
+  {
+    1,
+    "RadioMenuA",
+    "Set symbol A",
+    "InputMode"
+  },
+  {
+    2,
+    "RadioMenuB",
+    "Set symbol B",
+    "InputMode"
+  },
+  {
+    3,
+    "RadioMenuC",
+    "Set symbol C",
+    "InputMode"
+  },
+};
+
 static void
 ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
 {
   g_debug(G_STRFUNC);
-  IBusText *label = ibus_text_new_from_static_string("Radio Menu");
   root = ibus_prop_list_new();
   g_object_ref_sink(root);;
-  submenu = ibus_prop_list_new();
-  menu = ibus_property_new("InputMode",
-                           PROP_TYPE_MENU,
-                           label,
-                           NULL,
-                           NULL,
-                           TRUE,
-                           TRUE,
-                           PROP_STATE_UNCHECKED,
-                           submenu);
-  label = ibus_text_new_from_static_string("-");
-  ibus_property_set_symbol(menu, label);
-  g_object_ref_sink(menu);
-  ibus_prop_list_append(root, menu);
 
-  label = ibus_text_new_from_static_string("Set Symbol A");
-  menua = ibus_property_new("MENUA",
-                            PROP_TYPE_RADIO,
-                            label,
-                            NULL,
-                            NULL,
-                            TRUE,
-                            TRUE,
-                            PROP_STATE_UNCHECKED,
-                            NULL);
-  g_object_ref_sink(menua);
-  ibus_prop_list_append(submenu, menua);
-
-  label = ibus_text_new_from_static_string("Set Symbol B");
-  menub = ibus_property_new("MENUB",
-                            PROP_TYPE_RADIO,
-                            label,
-                            NULL,
-                            NULL,
-                            TRUE,
-                            TRUE,
-                            PROP_STATE_UNCHECKED,
-                            NULL);
-  g_object_ref_sink(menub);
-  ibus_prop_list_append(submenu, menub);
-
-  label = ibus_text_new_from_static_string("Set Symbol C");
-  menuc = ibus_property_new("MENUC",
-                            PROP_TYPE_RADIO,
-                            label,
-                            NULL,
-                            NULL,
-                            TRUE,
-                            TRUE,
-                            PROP_STATE_UNCHECKED,
-                            NULL);
-  g_object_ref_sink(menuc);
-  ibus_prop_list_append(submenu, menuc);
-
-  label = ibus_text_new_from_static_string("Radio Menu Test");
-  IBusProperty *prop = ibus_property_new("TOOL",
-                                         PROP_TYPE_MENU,
-                                         label,
-                                         NULL,
-                                         NULL,
-                                         TRUE,
-                                         TRUE,
-                                         PROP_STATE_UNCHECKED,
-                                         NULL);
-  g_object_ref_sink(prop);
-  ibus_prop_list_append(root, prop);
+  IBusPropList *parent = NULL;
+  IBusProperty *prop = NULL;
+    
+  for (guint i = 0; i < G_N_ELEMENTS(menus); i++) {
+    IBusRadioMenuFromArrayMenuProperty menu = menus[i];
+    IBusText *label = ibus_text_new_from_static_string(menu.label);
+    IBusPropType prop_type = PROP_TYPE_NORMAL;
+    IBusPropState prop_state = PROP_STATE_UNCHECKED;
+    gboolean sensitive = TRUE;
+    if (menu.id == 0) {
+      /* parent menu */
+      prop = ibus_property_new(menu.key,
+                               PROP_TYPE_MENU,
+                               label,
+                               NULL,
+                               NULL,
+                               sensitive,
+                               TRUE,
+                               prop_state,
+                               NULL);
+    } else {
+      prop = ibus_property_new(menu.key,
+                               PROP_TYPE_RADIO,
+                               label,
+                               NULL,
+                               NULL,
+                               sensitive,
+                               TRUE,
+                               prop_state,
+                               NULL);
+    }
+    if (!menu.parent_key) {
+      parent = ibus_prop_list_new();
+      ibus_property_set_sub_props(prop, parent);
+      ibus_prop_list_append(root, prop);
+    } else {
+      ibus_prop_list_append(parent, prop);
+    }
+  }
 }
 
 static void
