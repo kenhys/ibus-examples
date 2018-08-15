@@ -125,6 +125,22 @@ ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
                                TRUE,
                                prop_state,
                                NULL);
+      switch (menu.id) {
+      case 1:
+        menua = prop;
+        g_object_ref_sink(menua);
+        break;
+      case 1:
+        menub = prop;
+        g_object_ref_sink(menub);
+        break;
+      case 1:
+        menuc = prop;
+        g_object_ref_sink(menuc);
+        break;
+      default:
+        break;
+      }
     }
     if (!menu.parent_key) {
       parent = ibus_prop_list_new();
@@ -180,7 +196,7 @@ property_activate(IBusEngine *engine,
   }
 
   IBusText *symbol;
-  if (!strcmp(prop_name, "MENUA")) {
+  if (!strcmp(prop_name, "RadioMenuA")) {
     g_debug("%s:%s %s: set symbol(A) to InputMode menu",
             G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("A");
@@ -190,7 +206,7 @@ property_activate(IBusEngine *engine,
     ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menuc, PROP_STATE_UNCHECKED);
     ibus_engine_update_property(engine, menua);
-  } else if (!strcmp(prop_name, "MENUB")) {
+  } else if (!strcmp(prop_name, "RadioMenuB")) {
     g_debug("%s:%s %s: set symbol(B) to InputMode menu",
             G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("B");
@@ -200,7 +216,7 @@ property_activate(IBusEngine *engine,
     ibus_property_set_state(menub, PROP_STATE_CHECKED);
     ibus_property_set_state(menuc, PROP_STATE_UNCHECKED);
     ibus_engine_update_property(engine, menub);
-  } else if (!strcmp(prop_name, "MENUC")) {
+  } else if (!strcmp(prop_name, "RadioMenuC")) {
     g_debug("%s:%s %s: set symbol(C) to InputMode menu",
             G_STRLOC, G_STRFUNC, prop_name);
     symbol = ibus_text_new_from_static_string("C");
