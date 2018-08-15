@@ -143,11 +143,12 @@ ibus_radiomenu_engine_destroy(IBusRadioMenuEngine *engine)
   }
   if (menua) {
     g_object_unref(menua);
-    root = NULL;
+    menua = NULL;
   }
   if (menub) {
     g_object_unref(menub);
-    root = NULL;
+    menub = NULL;
+  }
   if (menuc) {
     g_object_unref(menuc);
     menuc = NULL;
