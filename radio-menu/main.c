@@ -148,6 +148,12 @@ property_activate(IBusEngine *engine,
   g_debug("%s:%s: prop_name: %s prop_state: 0x%08x",
           G_STRLOC, G_STRFUNC, prop_name, prop_state);
 
+  if (prop_state != PROP_STATE_CHECKED) {
+    g_debug("%s:%s: skip to update %s if prop_state(0x%08x) != PROP_STATE_CHECKED",
+            G_STRLOC, G_STRFUNC, prop_name, prop_state);
+    return;
+  }
+
   IBusText *symbol;
   if (!strcmp(prop_name, "MENUA")) {
     g_debug("%s:%s %s: set symbol(A) to InputMode menu",
