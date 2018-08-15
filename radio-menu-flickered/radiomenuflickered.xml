@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component>
   <name>com.example.IBus.RADIOMENUFLICKERED</name>
-  <description>Radio Menu</description>
+  <description>Radio Menu Flickered</description>
   <exec>/usr/libexec/ibus-engine-radiomenufrickered --ibus</exec>
   <version>1.0.0</version>
   <author>Kentaro Hayashi</author>
