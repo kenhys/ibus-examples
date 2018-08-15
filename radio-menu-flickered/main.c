@@ -1,20 +1,20 @@
 #include <ibus.h>
 #include <glib.h>
 
-typedef struct _IBusRadiomenuFlickeredEngine IBusRadiomenuFlickeredEngine;
-typedef struct _IBusRadiomenuFlickeredEngineClass IBusRadiomenuFlickeredEngineClass;
+typedef struct _IBusRadioMenuFlickeredEngine IBusRadioMenuFlickeredEngine;
+typedef struct _IBusRadioMenuFlickeredEngineClass IBusRadioMenuFlickeredEngineClass;
 
-struct _IBusRadiomenuFlickeredEngine {
+struct _IBusRadioMenuFlickeredEngine {
   IBusEngine parent;
 };
 
-struct _IBusRadiomenuFlickeredEngineClass {
+struct _IBusRadioMenuFlickeredEngineClass {
   IBusEngineClass parent;
 };
 
-static void ibus_radiomenuflickered_engine_class_init(IBusRadiomenuFlickeredEngineClass	*klass);
-static void ibus_radiomenuflickered_engine_init(IBusRadiomenuFlickeredEngine *engine);
-static void ibus_radiomenuflickered_engine_destroy(IBusRadiomenuFlickeredEngine *engine);
+static void ibus_radiomenuflickered_engine_class_init(IBusRadioMenuFlickeredEngineClass	*klass);
+static void ibus_radiomenuflickered_engine_init(IBusRadioMenuFlickeredEngine *engine);
+static void ibus_radiomenuflickered_engine_destroy(IBusRadioMenuFlickeredEngine *engine);
 
 static void focus_in(IBusEngine *engine);
 static void focus_out(IBusEngine *engine);
@@ -25,14 +25,14 @@ static void property_activate(IBusEngine *engine,
                               const gchar *prop_name,
                               guint prop_state);
 
-G_DEFINE_TYPE(IBusRadiomenuFlickeredEngine, ibus_radiomenuflickered_engine, IBUS_TYPE_ENGINE)
+G_DEFINE_TYPE(IBusRadioMenuFlickeredEngine, ibus_radiomenuflickered_engine, IBUS_TYPE_ENGINE)
 
 #define IBUS_TYPE_RADIOMENUFLICKERED_ENGINE (ibus_radiomenuflickered_engine_get_type())
 
 GType ibus_radiomenuflickered_engine_get_type(void);
 
 static void
-ibus_radiomenuflickered_engine_class_init(IBusRadiomenuFlickeredEngineClass *klass)
+ibus_radiomenuflickered_engine_class_init(IBusRadioMenuFlickeredEngineClass *klass)
 {
   g_debug(G_STRFUNC);
   IBusObjectClass *ibus_object_class = IBUS_OBJECT_CLASS (klass);
@@ -54,7 +54,7 @@ static IBusProperty *menua = NULL;
 static IBusProperty *menub = NULL;
 
 static void
-ibus_radiomenuflickered_engine_init(IBusRadiomenuFlickeredEngine *engine)
+ibus_radiomenuflickered_engine_init(IBusRadioMenuFlickeredEngine *engine)
 {
   g_debug(G_STRFUNC);
   IBusText *label = ibus_text_new_from_static_string("Radio Menu Flickered");
@@ -116,7 +116,7 @@ ibus_radiomenuflickered_engine_init(IBusRadiomenuFlickeredEngine *engine)
 }
 
 static void
-ibus_radiomenuflickered_engine_destroy(IBusRadiomenuFlickeredEngine *engine)
+ibus_radiomenuflickered_engine_destroy(IBusRadioMenuFlickeredEngine *engine)
 {
   g_debug(G_STRFUNC);
   if (menu) {
@@ -217,7 +217,7 @@ static const GOptionEntry options[] =
 int main(int argc, char *argv[])
 {
   GError *error = NULL;
-  GOptionContext *context = g_option_context_new("- IBus RadiomenuFlickered engine");
+  GOptionContext *context = g_option_context_new("- IBus RadioMenuFlickered engine");
   g_option_context_add_main_entries(context, options, "change-property");
 
   if (!g_option_context_parse(context, &argc, &argv, &error)) {
@@ -249,7 +249,7 @@ int main(int argc, char *argv[])
                                                   "",
                                                   "ibus-engine-radiomenuflickered");
     IBusEngineDesc *description = ibus_engine_desc_new("radiomenuflickered",
-                                                       "RadiomenuFlickered",
+                                                       "RadioMenuFlickered",
                                                        "Radio Menu (Japanese Input Method)",
                                                        "ja",
                                                        "MIT",
