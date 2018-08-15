@@ -10,6 +10,7 @@ SUBDIRS = \
 	nested-menu \
 	radio-menu \
 	radio-menu-delay \
+	radio-menu-from-array \
 	radio-menu-flickered \
 	simple-menu \
 	$(NULL)

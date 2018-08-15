@@ -30,6 +30,7 @@ AC_CONFIG_FILES([Makefile
                  hybrid-engine/Makefile
                  nested-menu/Makefile
                  radio-menu/Makefile
+                 radio-menu-from-array/Makefile
                  radio-menu-delay/Makefile
                  radio-menu-flickered/Makefile
                  radio-menu-stall/Makefile
