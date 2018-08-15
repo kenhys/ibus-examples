@@ -279,7 +279,7 @@ int main(int argc, char *argv[])
   ibus_factory_add_engine(factory, "radiomenu", IBUS_TYPE_RADIOMENUFROMARRAY_ENGINE);
 
   if (execute_by_ibus) {
-    ibus_bus_request_name(bus, "com.example.IBus.RADIOMENU", 0);
+    ibus_bus_request_name(bus, "com.example.IBus.RADIOMENUFROMARRAY", 0);
   } else {
     IBusComponent *component = ibus_component_new("com.example.IBus.RADIOMENUFROMARRAY",
                                                   "Radio Menu",
