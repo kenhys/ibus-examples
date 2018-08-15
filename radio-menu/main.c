@@ -103,7 +103,7 @@ ibus_radiomenu_engine_init(IBusRadioMenuEngine *engine)
   ibus_prop_list_append(submenu, menub);
 
   label = ibus_text_new_from_static_string("Set Symbol C");
-  menub = ibus_property_new("MENUC",
+  menuc = ibus_property_new("MENUC",
                             PROP_TYPE_RADIO,
                             label,
                             NULL,
