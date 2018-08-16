@@ -49,6 +49,7 @@ ibus_sample_engine_class_init(IBusSampleEngineClass *klass)
   engine_class->focus_in = focus_in;
   engine_class->focus_out = focus_out;
   engine_class->property_activate = property_activate;
+  engine_class->process_key_event = process_key_event;
 }
 
 static IBusPropList *root = NULL;
