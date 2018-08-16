@@ -1,40 +1,40 @@
 #include <ibus.h>
 #include <glib.h>
 
-typedef struct _IBusSimpleMenuEngine IBusSimpleMenuEngine;
-typedef struct _IBusSimpleMenuEngineClass IBusSimpleMenuEngineClass;
+typedef struct _IBusSampleEngine IBusSampleEngine;
+typedef struct _IBusSampleEngineClass IBusSampleEngineClass;
 
-struct _IBusSimpleMenuEngine {
+struct _IBusSampleEngine {
   IBusEngine parent;
 };
 
-struct _IBusSimpleMenuEngineClass {
+struct _IBusSampleEngineClass {
   IBusEngineClass parent;
 };
 
-static void	ibus_simplemenu_engine_class_init	(IBusSimpleMenuEngineClass	*klass);
-static void	ibus_simplemenu_engine_init		(IBusSimpleMenuEngine		*engine);
-static void	ibus_simplemenu_engine_destroy		(IBusSimpleMenuEngine		*engine);
+static void	ibus_sample_engine_class_init	(IBusSampleEngineClass	*klass);
+static void	ibus_sample_engine_init		(IBusSampleEngine		*engine);
+static void	ibus_sample_engine_destroy		(IBusSampleEngine		*engine);
 static gboolean
-ibus_simplemenu_engine_process_key_event(IBusEngine             *engine,
+ibus_sample_engine_process_key_event(IBusEngine             *engine,
                                          guint               	 keyval,
                                          guint               	 keycode,
                                          guint               	 modifiers);
-G_DEFINE_TYPE(IBusSimpleMenuEngine, ibus_simplemenu_engine, IBUS_TYPE_ENGINE)
+G_DEFINE_TYPE(IBusSampleEngine, ibus_sample_engine, IBUS_TYPE_ENGINE)
 
-#define IBUS_TYPE_SIMPLE_MENU_ENGINE (ibus_simplemenu_engine_get_type())
+#define IBUS_TYPE_SIMPLE_MENU_ENGINE (ibus_sample_engine_get_type())
 
-GType   ibus_simplemenu_engine_get_type(void);
+GType   ibus_sample_engine_get_type(void);
 
 static void
-ibus_simplemenu_engine_class_init (IBusSimpleMenuEngineClass *klass)
+ibus_sample_engine_class_init (IBusSampleEngineClass *klass)
 {
   IBusObjectClass *ibus_object_class = IBUS_OBJECT_CLASS (klass);
   IBusEngineClass *engine_class = IBUS_ENGINE_CLASS (klass);
 
-  ibus_object_class->destroy = (IBusObjectDestroyFunc)ibus_simplemenu_engine_destroy;
+  ibus_object_class->destroy = (IBusObjectDestroyFunc)ibus_sample_engine_destroy;
 
-  engine_class->process_key_event = ibus_simplemenu_engine_process_key_event;
+  engine_class->process_key_event = ibus_sample_engine_process_key_event;
 }
 
 static IBusPropList *root = NULL;
@@ -42,7 +42,7 @@ static IBusProperty *menu = NULL;
 static IBusPropList *submenu = NULL;
 
 static void
-ibus_simplemenu_engine_init(IBusSimpleMenuEngine *engine)
+ibus_sample_engine_init(IBusSampleEngine *engine)
 {
   IBusText *label = ibus_text_new_from_static_string("Simple Menu");
   IBusText *tips = ibus_text_new_from_static_string("");
@@ -76,15 +76,15 @@ ibus_simplemenu_engine_init(IBusSimpleMenuEngine *engine)
 }
 
 static void
-ibus_simplemenu_engine_destroy(IBusSimpleMenuEngine *engine)
+ibus_sample_engine_destroy(IBusSampleEngine *engine)
 {
   g_object_unref(menu);
   g_object_unref(root);
-  ((IBusObjectClass *)ibus_simplemenu_engine_parent_class)->destroy((IBusObject *)engine);
+  ((IBusObjectClass *)ibus_sample_engine_parent_class)->destroy((IBusObject *)engine);
 }
 
 static gboolean
-ibus_simplemenu_engine_process_key_event(IBusEngine *engine,
+ibus_sample_engine_process_key_event(IBusEngine *engine,
                                          guint       keyval,
                                          guint       keycode,
                                          guint       modifiers)
