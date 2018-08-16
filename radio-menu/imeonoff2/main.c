@@ -68,7 +68,7 @@ ibus_sample_engine_init(IBusSampleEngine *engine)
   IBusText *label = ibus_text_new_from_static_string("Radio Menu IME On Off");
   root = ibus_prop_list_new();
   g_object_ref_sink(root);;
-  PropList *inputmenu = ibus_prop_list_new();
+  IBusPropList *inputmenu = ibus_prop_list_new();
   menu = ibus_property_new("InputMode",
                            PROP_TYPE_MENU,
                            label,
