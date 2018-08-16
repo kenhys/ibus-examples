@@ -225,6 +225,7 @@ static gboolean process_key_event(IBusEngine *engine,
       g_imeonoff = 0;
       symbol = ibus_text_new_from_static_string("-");
       ibus_property_set_symbol(menu, symbol);
+      ibus_engine_update_property(engine, menu);
       ibus_property_set_state(menua, PROP_STATE_CHECKED);
       ibus_engine_update_property(engine, menua);
     } else {
