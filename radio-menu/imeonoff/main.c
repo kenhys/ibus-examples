@@ -208,7 +208,7 @@ property_activate(IBusEngine *engine,
 static gboolean is_kanji(guint keyval, guint modifiers)
 {
   if (keyval == IBUS_KEY_Zenkaku_Hankaku ||
-      ((modifiers & IBUS_MOD1_MASK) && keyval == IBUS_KEY_grave)) {
+      ((modifiers & IBUS_MOD4_MASK) && keyval == IBUS_KEY_grave)) {
     return TRUE;
   } else {
     return FALSE;
