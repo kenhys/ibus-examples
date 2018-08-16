@@ -29,13 +29,14 @@ AC_CONFIG_FILES([Makefile
                  create-component/Makefile
                  hybrid-engine/Makefile
                  nested-menu/Makefile
-                 radio-menu/simple/Makefile
+                 radio-menu/Makefile
                  radio-menu/from-array/Makefile
                  radio-menu/delay/Makefile
                  radio-menu/flickered/Makefile
                  radio-menu/imeonoff/Makefile
                  radio-menu/imeonoff2/Makefile
                  radio-menu/noneedtoupdate/Makefile
+                 radio-menu/simple/Makefile
                  radio-menu/stall/Makefile
                  simple-menu/Makefile
                  engine-icon/Makefile])

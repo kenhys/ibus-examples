@@ -8,13 +8,6 @@ SUBDIRS = \
 	engine-icon \
 	hybrid-engine \
 	nested-menu \
-	radio-menu/simple \
-	radio-menu/delay \
-	radio-menu/from-array \
-	radio-menu/flickered \
-	radio-menu/imeonoff \
-	radio-menu/imeonoff2 \
-	radio-menu/noneedtoupdate \
-	radio-menu/stall \
+	radio-menu \
 	simple-menu \
 	$(NULL)
