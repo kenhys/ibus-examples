@@ -13,6 +13,7 @@ SUBDIRS = \
 	radio-menu-from-array \
 	radio-menu-flickered \
 	radio-menu-imeonoff \
+	radio-menu-imeonoff2 \
 	radio-menu-noneedtoupdate \
 	radio-menu-stall \
 	simple-menu \
