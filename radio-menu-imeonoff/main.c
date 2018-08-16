@@ -221,6 +221,7 @@ static gboolean process_key_event(IBusEngine *engine,
   IBusText *symbol;
   if (keyval == IBUS_KEY_Zenkaku_Hankaku) {
     if (g_imeonoff) {
+      g_debug("%s:%s set IME to off", G_STRLOC, G_STRFUNC);
       g_imeonoff = 0;
       symbol = ibus_text_new_from_static_string("-");
       ibus_property_set_symbol(menu, symbol);
@@ -229,7 +230,7 @@ static gboolean process_key_event(IBusEngine *engine,
     } else {
       switch (g_inputkind) {
       case 1:
-        // set default to Hiragana
+        g_debug("%s:%s set default to Katakana", G_STRLOC, G_STRFUNC);
         symbol = ibus_text_new_from_static_string("ア");
         ibus_property_set_symbol(menu, symbol);
         ibus_engine_update_property(engine, menu);
@@ -239,6 +240,7 @@ static gboolean process_key_event(IBusEngine *engine,
       case 0:
       default:
         // set default to Hiragana
+        g_debug("%s:%s set default to Hiragana", G_STRLOC, G_STRFUNC);
         symbol = ibus_text_new_from_static_string("あ");
         ibus_property_set_symbol(menu, symbol);
         ibus_engine_update_property(engine, menu);
