@@ -1,6 +1,7 @@
 # ibus-examples
 
-This repository is a collection of working and *NOT* working IBus examples.
+This repository is a collection of working and **NOT** working IBus examples.
+For the record, I'll Dare to show some IBus mistakes in this repository.
 
 ## radio-menu
 
@@ -9,6 +10,7 @@ This repository is a collection of working and *NOT* working IBus examples.
 ## radio-menu-delay
 
 `PROP_TYPE_RADIO` example, but selected item is not correctly updated.
+Do not forget to update IBus property by `ibus_engine_update_property`.
 
 ## radio-menu-flickered
 
