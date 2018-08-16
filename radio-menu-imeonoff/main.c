@@ -209,6 +209,11 @@ static gboolean process_key_event(IBusEngine *engine,
                                   guint keycode,
                                   guint modifiers)
 {
+  const gchar *name = ibus_key_event_to_string(keyval, modifiers);
+  g_debug("%s:%s %s keyval: %u(0x%02x), keycode: %u(0x%02x), modifiers: %u(0x%08x)",
+          G_STRLOC, G_STRFUNC, name,
+          keyval, keyval, keycode, keycode, modifiers, modifiers);
+
   IBusText *symbol;
   if (keyval == IBUS_KEY_Zenkaku_Hankaku) {
     if (g_imeonoff) {
