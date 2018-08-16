@@ -135,7 +135,7 @@ ibus_sample_engine_destroy(IBusSampleEngine *engine)
     g_object_unref(menub);
     menub = NULL;
   }
-  ((IBusObjectClass *)ibus_radiomenustall_engine_parent_class)->destroy((IBusObject *)engine);
+  ((IBusObjectClass *)ibus_sample_engine_parent_class)->destroy((IBusObject *)engine);
 }
 
 static void
