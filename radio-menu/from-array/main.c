@@ -54,14 +54,14 @@ static IBusProperty *menua = NULL;
 static IBusProperty *menub = NULL;
 static IBusProperty *menuc = NULL;
 
-typedef struct _IBusRadioMenuFromArrayMenuProperty {
+typedef struct _IBusSampleMenuProperty {
     guint id;
     const char *key;
     const char *label;
     const char *parent_key;
-} IBusRadioMenuFromArrayMenuProperty;
+} IBusSampleMenuProperty;
 
-static IBusRadioMenuFromArrayMenuProperty menus[] = {
+static IBusSampleMenuProperty menus[] = {
   {
     0,
     "InputMode",
