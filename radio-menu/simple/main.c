@@ -269,7 +269,7 @@ int main(int argc, char *argv[])
 
   IBusFactory *factory = ibus_factory_new(ibus_bus_get_connection(bus));
   g_object_ref_sink(factory);
-  ibus_factory_add_engine(factory, "radiomenu", IBUS_TYPE_RADIOMENU_ENGINE);
+  ibus_factory_add_engine(factory, "radiomenu", IBUS_TYPE_SAMPLE_ENGINE);
 
   if (execute_by_ibus) {
     ibus_bus_request_name(bus, "com.example.IBus.RADIOMENU", 0);
