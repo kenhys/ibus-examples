@@ -218,6 +218,9 @@ static gboolean process_key_event(IBusEngine *engine,
   if (modifiers == IBUS_RELEASE_MASK)
     return FALSE;
 
+  g_debug("%s:%s ime on/off: %d input kind: %d",
+          G_STRLOC, G_STRFUNC, g_imeonoff, g_inputkind);
+
   IBusText *symbol;
   if (keyval == IBUS_KEY_Zenkaku_Hankaku) {
     if (g_imeonoff) {
