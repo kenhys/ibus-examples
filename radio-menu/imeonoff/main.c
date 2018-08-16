@@ -205,6 +205,16 @@ property_activate(IBusEngine *engine,
   }
 }
 
+static gboolean is_kanji(guint keyval, guint modifiers)
+{
+  if (keyval == IBUS_KEY_Zenkaku_Hankaku ||
+      ((modifiers & IBUS_MOD1_MASK) && keyval == IBUS_KEY_grave)) {
+    return TRUE;
+  } else {
+    return FALSE;
+  }
+}
+
 static gboolean process_key_event(IBusEngine *engine,
                                   guint keyval,
                                   guint keycode,
@@ -224,7 +234,7 @@ static gboolean process_key_event(IBusEngine *engine,
           G_STRLOC, G_STRFUNC, g_imeonoff, g_inputkind);
 
   IBusText *symbol;
-  if (keyval == IBUS_KEY_Zenkaku_Hankaku) {
+  if (is_kanji(keyval, modifiers)) {
     if (g_imeonoff) {
       g_debug("%s:%s set IME to off", G_STRLOC, G_STRFUNC);
       g_imeonoff = 0;
