@@ -58,7 +58,7 @@ static IBusPropList *submenu = NULL;
 static IBusProperty *menua = NULL;
 static IBusProperty *menub = NULL;
 static IBusProperty *menuc = NULL;
-static gint g_imeonoff = -1;
+static gint g_imeonoff = 0;
 static gint g_inputkind = -1;
 
 static void
