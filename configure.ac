@@ -33,6 +33,7 @@ AC_CONFIG_FILES([Makefile
                  radio-menu-from-array/Makefile
                  radio-menu-delay/Makefile
                  radio-menu-flickered/Makefile
+                 radio-menu-imeonoff/Makefile
                  radio-menu-noneedtoupdate/Makefile
                  radio-menu-stall/Makefile
                  simple-menu/Makefile
