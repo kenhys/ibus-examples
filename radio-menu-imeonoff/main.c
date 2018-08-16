@@ -68,7 +68,7 @@ ibus_sample_engine_init(IBusSampleEngine *engine)
   IBusText *label = ibus_text_new_from_static_string("Radio Menu IME On Off");
   root = ibus_prop_list_new();
   g_object_ref_sink(root);;
-  submenu = ibus_prop_list_new();
+  IBusPropList *inputmenu = ibus_prop_list_new();
   menu = ibus_property_new("InputMode",
                            PROP_TYPE_MENU,
                            label,
@@ -77,11 +77,24 @@ ibus_sample_engine_init(IBusSampleEngine *engine)
                            TRUE,
                            TRUE,
                            PROP_STATE_UNCHECKED,
-                           submenu);
+                           inputmenu);
   label = ibus_text_new_from_static_string("-");
   ibus_property_set_symbol(menu, label);
   g_object_ref_sink(menu);
   ibus_prop_list_append(root, menu);
+
+  label = ibus_text_new_from_static_string("InputKind");
+  submenu = ibus_prop_list_new();
+  IBusProperty *prop = ibus_property_new("InputKind",
+                                         PROP_TYPE_MENU,
+                                         label,
+                                         NULL,
+                                         NULL,
+                                         TRUE,
+                                         TRUE,
+                                         PROP_STATE_UNCHECKED,
+                                         submenu);
+  ibus_prop_list_append(inputmenu, prop);
 
   label = ibus_text_new_from_static_string("Set IME Off");
   menua = ibus_property_new("MENUA",
