@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+  <name>com.example.IBus.RADIOMENUNONEEDTOUPDATE</name>
+  <description>Radio Menu No Need To Update</description>
+  <exec>/usr/libexec/ibus-engine-radiomenunoneedtoupdate --ibus</exec>
+  <version>1.0.0</version>
+  <author>Kentaro Hayashi</author>
+  <license>MIT</license>
+  <homepage>https://github.com/kenhys/ibus-examples</homepage>
+  <textdomain>ibus-engine-radiomenunoneedtoupdate</textdomain>
+
+  <engines>
+    <engine>
+      <name>radiomenunoneedtoupdate</name>
+      <language>ja</language>
+      <license>MIT</license>
+      <author>Kentaro Hayashi</author>
+      <icon></icon>
+      <layout>default</layout>
+      <icon_prop_key>InputMode</icon_prop_key>
+      <longname>RadioMenuNoNeedToUpdate</longname>
+      <description>Radio Menu No Need To Update (Japanese Input Method)</description>
+      <rank>50</rank>
+    </engine>
+  </engines>
+</component>

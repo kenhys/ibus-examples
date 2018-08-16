@@ -12,5 +12,7 @@ SUBDIRS = \
 	radio-menu-delay \
 	radio-menu-from-array \
 	radio-menu-flickered \
+	radio-menu-noneedtoupdate \
+	radio-menu-stall \
 	simple-menu \
 	$(NULL)
