@@ -250,7 +250,7 @@ int main(int argc, char *argv[])
                                                   "ibus-engine-radiomenuflickered");
     IBusEngineDesc *description = ibus_engine_desc_new("radiomenuflickered",
                                                        "RadioMenuFlickered",
-                                                       "Radio Menu (Japanese Input Method)",
+                                                       "Radio Menu Flickered (Japanese Input Method)",
                                                        "ja",
                                                        "MIT",
                                                        "Kentaro Hayashi",
