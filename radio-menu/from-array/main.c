@@ -89,7 +89,7 @@ static IBusSampleMenuProperty menus[] = {
 };
 
 static void
-ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
+ibus_sample_engine_init(IBusSampleEngine *engine)
 {
   g_debug(G_STRFUNC);
   root = ibus_prop_list_new();
@@ -99,7 +99,7 @@ ibus_radiomenufromarray_engine_init(IBusRadioMenuFromArrayEngine *engine)
   IBusProperty *prop = NULL;
     
   for (guint i = 0; i < G_N_ELEMENTS(menus); i++) {
-    IBusRadioMenuFromArrayMenuProperty menuitem = menus[i];
+    IBusSampleMenuProperty menuitem = menus[i];
     IBusText *label = ibus_text_new_from_static_string(menuitem.label);
     IBusPropType prop_type = PROP_TYPE_NORMAL;
     IBusPropState prop_state = PROP_STATE_UNCHECKED;
