@@ -215,6 +215,9 @@ static gboolean process_key_event(IBusEngine *engine,
           G_STRLOC, G_STRFUNC, name,
           keyval, keyval, keycode, keycode, modifiers, modifiers);
 
+  if (modifiers == IBUS_RELEASE_MASK)
+    return FALSE;
+
   IBusText *symbol;
   if (keyval == IBUS_KEY_Zenkaku_Hankaku) {
     if (g_imeonoff) {
