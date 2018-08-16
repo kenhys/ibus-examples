@@ -215,7 +215,7 @@ static gboolean process_key_event(IBusEngine *engine,
           G_STRLOC, G_STRFUNC, name,
           keyval, keyval, keycode, keycode, modifiers, modifiers);
 
-  if (modifiers == IBUS_RELEASE_MASK) {
+  if (modifiers & IBUS_RELEASE_MASK) {
     g_debug("%s:%s skip to handle release key", G_STRLOC, G_STRFUNC);
     return TRUE;
   }
