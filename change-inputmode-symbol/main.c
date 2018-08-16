@@ -1,20 +1,20 @@
 #include <ibus.h>
 #include <glib.h>
 
-typedef struct _IBusChangeInputModeSymbolEngine IBusChangeInputModeSymbolEngine;
-typedef struct _IBusChangeInputModeSymbolEngineClass IBusChangeInputModeSymbolEngineClass;
+typedef struct _IBusSampleEngine IBusSampleEngine;
+typedef struct _IBusSampleEngineClass IBusSampleEngineClass;
 
-struct _IBusChangeInputModeSymbolEngine {
+struct _IBusSampleEngine {
   IBusEngine parent;
 };
 
-struct _IBusChangeInputModeSymbolEngineClass {
+struct _IBusSampleEngineClass {
   IBusEngineClass parent;
 };
 
-static void ibus_changeinputmodesymbol_engine_class_init(IBusChangeInputModeSymbolEngineClass	*klass);
-static void ibus_changeinputmodesymbol_engine_init(IBusChangeInputModeSymbolEngine *engine);
-static void ibus_changeinputmodesymbol_engine_destroy(IBusChangeInputModeSymbolEngine *engine);
+static void ibus_changeinputmodesymbol_engine_class_init(IBusSampleEngineClass	*klass);
+static void ibus_changeinputmodesymbol_engine_init(IBusSampleEngine *engine);
+static void ibus_changeinputmodesymbol_engine_destroy(IBusSampleEngine *engine);
 
 static void focus_in(IBusEngine *engine);
 static void focus_out(IBusEngine *engine);
@@ -25,14 +25,14 @@ static void property_activate(IBusEngine *engine,
                               const gchar *prop_name,
                               guint prop_state);
 
-G_DEFINE_TYPE(IBusChangeInputModeSymbolEngine, ibus_changeinputmodesymbol_engine, IBUS_TYPE_ENGINE)
+G_DEFINE_TYPE(IBusSampleEngine, ibus_changeinputmodesymbol_engine, IBUS_TYPE_ENGINE)
 
 #define IBUS_TYPE_CHANGEINPUTMODESYMBOL_ENGINE (ibus_changeinputmodesymbol_engine_get_type())
 
 GType ibus_changeinputmodesymbol_engine_get_type(void);
 
 static void
-ibus_changeinputmodesymbol_engine_class_init(IBusChangeInputModeSymbolEngineClass *klass)
+ibus_changeinputmodesymbol_engine_class_init(IBusSampleEngineClass *klass)
 {
   g_debug(G_STRFUNC);
   IBusObjectClass *ibus_object_class = IBUS_OBJECT_CLASS (klass);
@@ -52,7 +52,7 @@ static IBusProperty *menu = NULL;
 static IBusPropList *submenu = NULL;
 
 static void
-ibus_changeinputmodesymbol_engine_init(IBusChangeInputModeSymbolEngine *engine)
+ibus_changeinputmodesymbol_engine_init(IBusSampleEngine *engine)
 {
   g_debug(G_STRFUNC);
   IBusText *label = ibus_text_new_from_static_string("Change Symbol");
@@ -114,7 +114,7 @@ ibus_changeinputmodesymbol_engine_init(IBusChangeInputModeSymbolEngine *engine)
 }
 
 static void
-ibus_changeinputmodesymbol_engine_destroy(IBusChangeInputModeSymbolEngine *engine)
+ibus_changeinputmodesymbol_engine_destroy(IBusSampleEngine *engine)
 {
   g_debug(G_STRFUNC);
   if (menu) {
@@ -199,7 +199,7 @@ static const GOptionEntry options[] =
 int main(int argc, char *argv[])
 {
   GError *error = NULL;
-  GOptionContext *context = g_option_context_new("- IBus ChangeInputModeSymbol engine");
+  GOptionContext *context = g_option_context_new("- IBus Sample engine");
   g_option_context_add_main_entries(context, options, "change-property");
 
   if (!g_option_context_parse(context, &argc, &argv, &error)) {
