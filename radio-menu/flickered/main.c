@@ -129,11 +129,11 @@ ibus_sample_engine_destroy(IBusSampleEngine *engine)
   }
   if (menua) {
     g_object_unref(menua);
-    root = NULL;
+    menua = NULL;
   }
   if (menub) {
     g_object_unref(menub);
-    root = NULL;
+    menub = NULL;
   }
   ((IBusObjectClass *)ibus_sample_engine_parent_class)->destroy((IBusObject *)engine);
 }
