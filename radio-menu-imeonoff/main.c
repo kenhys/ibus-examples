@@ -94,6 +94,7 @@ ibus_sample_engine_init(IBusSampleEngine *engine)
                                          TRUE,
                                          PROP_STATE_UNCHECKED,
                                          submenu);
+  g_object_ref_sink(prop);
   ibus_prop_list_append(inputmenu, prop);
 
   label = ibus_text_new_from_static_string("Set IME Off");
