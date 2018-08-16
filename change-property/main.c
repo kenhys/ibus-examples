@@ -1,20 +1,20 @@
 #include <ibus.h>
 #include <glib.h>
 
-typedef struct _IBusChangePropEngine IBusChangePropEngine;
-typedef struct _IBusChangePropEngineClass IBusChangePropEngineClass;
+typedef struct _IBusSampleEngine IBusSampleEngine;
+typedef struct _IBusSampleEngineClass IBusSampleEngineClass;
 
-struct _IBusChangePropEngine {
+struct _IBusSampleEngine {
   IBusEngine parent;
 };
 
-struct _IBusChangePropEngineClass {
+struct _IBusSampleEngineClass {
   IBusEngineClass parent;
 };
 
-static void ibus_changeprop_engine_class_init(IBusChangePropEngineClass	*klass);
-static void ibus_changeprop_engine_init(IBusChangePropEngine *engine);
-static void ibus_changeprop_engine_destroy(IBusChangePropEngine *engine);
+static void ibus_changeprop_engine_class_init(IBusSampleEngineClass	*klass);
+static void ibus_changeprop_engine_init(IBusSampleEngine *engine);
+static void ibus_changeprop_engine_destroy(IBusSampleEngine *engine);
 
 static void focus_in(IBusEngine *engine);
 static void focus_out(IBusEngine *engine);
@@ -26,14 +26,14 @@ static gboolean process_key_event(IBusEngine *engine,
                                   guint keycode,
                                   guint modifiers);
 
-G_DEFINE_TYPE(IBusChangePropEngine, ibus_changeprop_engine, IBUS_TYPE_ENGINE)
+G_DEFINE_TYPE(IBusSampleEngine, ibus_changeprop_engine, IBUS_TYPE_ENGINE)
 
 #define IBUS_TYPE_CHANGEPROP_ENGINE (ibus_changeprop_engine_get_type())
 
 GType ibus_changeprop_engine_get_type(void);
 
 static void
-ibus_changeprop_engine_class_init(IBusChangePropEngineClass *klass)
+ibus_changeprop_engine_class_init(IBusSampleEngineClass *klass)
 {
   g_debug(G_STRFUNC);
   IBusObjectClass *ibus_object_class = IBUS_OBJECT_CLASS (klass);
@@ -53,7 +53,7 @@ static IBusProperty *menu = NULL;
 static IBusPropList *submenu = NULL;
 
 static void
-ibus_changeprop_engine_init(IBusChangePropEngine *engine)
+ibus_changeprop_engine_init(IBusSampleEngine *engine)
 {
   g_debug(G_STRFUNC);
   IBusText *label = ibus_text_new_from_static_string("Menu A");
@@ -87,7 +87,7 @@ ibus_changeprop_engine_init(IBusChangePropEngine *engine)
 }
 
 static void
-ibus_changeprop_engine_destroy(IBusChangePropEngine *engine)
+ibus_changeprop_engine_destroy(IBusSampleEngine *engine)
 {
   g_debug(G_STRFUNC);
   if (menu) {
