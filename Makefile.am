@@ -8,7 +8,7 @@ SUBDIRS = \
 	engine-icon \
 	hybrid-engine \
 	nested-menu \
-	radio-menu \
+	radio-menu/simple \
 	radio-menu/delay \
 	radio-menu/from-array \
 	radio-menu/flickered \

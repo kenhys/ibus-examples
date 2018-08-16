@@ -29,7 +29,7 @@ AC_CONFIG_FILES([Makefile
                  create-component/Makefile
                  hybrid-engine/Makefile
                  nested-menu/Makefile
-                 radio-menu/Makefile
+                 radio-menu/simple/Makefile
                  radio-menu/from-array/Makefile
                  radio-menu/delay/Makefile
                  radio-menu/flickered/Makefile
