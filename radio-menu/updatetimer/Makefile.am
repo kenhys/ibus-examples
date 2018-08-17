@@ -1,29 +1,29 @@
-libexec_PROGRAMS = ibus-engine-radiomenuimeonoff3
+libexec_PROGRAMS = ibus-engine-radiomenuupdatetimer
 
-ibus_engine_radiomenuimeonoff3_SOURCES = \
+ibus_engine_radiomenuupdatetimer_SOURCES = \
         main.c \
         $(NULL)
 
-ibus_engine_radiomenuimeonoff3_CFLAGS = \
+ibus_engine_radiomenuupdatetimer_CFLAGS = \
 	@IBUS_CFLAGS@ \
         @GTK_CFLAGS@ \
         $(NULL)
 
-ibus_engine_radiomenuimeonoff3_LDFLAGS = \
+ibus_engine_radiomenuupdatetimer_LDFLAGS = \
         @IBUS_LIBS@ \
         @GTK_LIBS@ \
         $(NULL)
 
-ibus_engine_radiomenuimeonoff3_LDADD = \
+ibus_engine_radiomenuupdatetimer_LDADD = \
         @GTK_LIBS@ \
         @IBUS_LIBS@ \
         $(NULL)
 
 component_DATA = \
-        radiomenuimeonoff3.xml \
+        radiomenuupdatetimer.xml \
         $(NULL)
 componentdir = @datadir@/ibus/component
 
 EXTRA_DIST = \
-        radiomenuimeonoff3.xml \
+        radiomenuupdatetimer.xml \
         $(NULL)
