@@ -215,6 +215,8 @@ delayed_property_activate(gpointer user_data)
 
 static IBusSampleProperty property;
 
+#define TIMER_DELAY 7000
+
 static void
 property_activate(IBusEngine *engine,
                   const gchar *prop_name,
@@ -236,17 +238,17 @@ property_activate(IBusEngine *engine,
     g_debug("%s:%s %s: Disable IME off",
             G_STRLOC, G_STRFUNC, prop_name);
     property.status = 0;
-    g_timeout_add(7000, delayed_property_activate, &property);
+    g_timeout_add(TIMER_DELAY_SECONDS, delayed_property_activate, &property);
   } else if (!strcmp(prop_name, "MENUB")) {
     g_debug("%s:%s %s: set Hiragana",
             G_STRLOC, G_STRFUNC, prop_name);
     property.status = 1;
-    g_timeout_add(7000, delayed_property_activate, &property);
+    g_timeout_add(TIMER_DELAY_SECONDS, delayed_property_activate, &property);
   } else if (!strcmp(prop_name, "MENUC")) {
     g_debug("%s:%s %s: set Katakana",
             G_STRLOC, G_STRFUNC, prop_name);
     property.status = 2;
-    g_timeout_add(7000, delayed_property_activate, &property);
+    g_timeout_add(TIMER_DELAY_SECONDS, delayed_property_activate, &property);
   }
 }
 
