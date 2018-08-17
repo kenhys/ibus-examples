@@ -7,5 +7,5 @@ SUBDIRS = \
 	imeonoff2 \
 	noneedtoupdate \
 	stall \
-	updatetimer \
+	updatebytimer \
 	$(NULL)
