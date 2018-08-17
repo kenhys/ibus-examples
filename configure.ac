@@ -38,7 +38,7 @@ AC_CONFIG_FILES([Makefile
                  radio-menu/noneedtoupdate/Makefile
                  radio-menu/simple/Makefile
                  radio-menu/stall/Makefile
-                 radio-menu/updatetimer/Makefile
+                 radio-menu/updatebytimer/Makefile
                  simple-menu/Makefile
                  engine-icon/Makefile])
 AC_OUTPUT
