@@ -180,8 +180,11 @@ property_activate(IBusEngine *engine,
     ibus_property_set_symbol(menu, symbol);
     ibus_engine_update_property(engine, menu);
     ibus_property_set_state(menua, PROP_STATE_CHECKED);
+#if 0
+    /* No need to make UNCHECKED */
     ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menuc, PROP_STATE_UNCHECKED);
+#endif
     ibus_engine_update_property(engine, menua);
   } else if (!strcmp(prop_name, "MENUB")) {
     g_debug("%s:%s %s: set symbol(B) to InputMode menu",
@@ -189,9 +192,12 @@ property_activate(IBusEngine *engine,
     symbol = ibus_text_new_from_static_string("B");
     ibus_property_set_symbol(menu, symbol);
     ibus_engine_update_property(engine, menu);
-    ibus_property_set_state(menua, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menub, PROP_STATE_CHECKED);
+#if 0
+    /* No need to make UNCHECKED */
+    ibus_property_set_state(menua, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menuc, PROP_STATE_UNCHECKED);
+#endif
     ibus_engine_update_property(engine, menub);
   } else if (!strcmp(prop_name, "MENUC")) {
     g_debug("%s:%s %s: set symbol(C) to InputMode menu",
@@ -199,8 +205,11 @@ property_activate(IBusEngine *engine,
     symbol = ibus_text_new_from_static_string("C");
     ibus_property_set_symbol(menu, symbol);
     ibus_engine_update_property(engine, menu);
+#if 0
+    /* No need to make UNCHECKED */
     ibus_property_set_state(menua, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
+#endif
     ibus_property_set_state(menuc, PROP_STATE_CHECKED);
     ibus_engine_update_property(engine, menuc);
   }
