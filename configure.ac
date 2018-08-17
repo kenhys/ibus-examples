@@ -35,10 +35,10 @@ AC_CONFIG_FILES([Makefile
                  radio-menu/flickered/Makefile
                  radio-menu/imeonoff/Makefile
                  radio-menu/imeonoff2/Makefile
-                 radio-menu/imeonoff3/Makefile
                  radio-menu/noneedtoupdate/Makefile
                  radio-menu/simple/Makefile
                  radio-menu/stall/Makefile
+                 radio-menu/updatetimer/Makefile
                  simple-menu/Makefile
                  engine-icon/Makefile])
 AC_OUTPUT
