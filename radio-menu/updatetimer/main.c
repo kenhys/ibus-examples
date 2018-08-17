@@ -65,7 +65,7 @@ static void
 ibus_sample_engine_init(IBusSampleEngine *engine)
 {
   g_debug(G_STRFUNC);
-  IBusText *label = ibus_text_new_from_static_string("Radio Menu Update Timer");
+  IBusText *label = ibus_text_new_from_static_string("Radio Menu Update By Timer");
   root = ibus_prop_list_new();
   g_object_ref_sink(root);;
   submenu = ibus_prop_list_new();
@@ -360,7 +360,7 @@ static const GOptionEntry options[] =
 int main(int argc, char *argv[])
 {
   GError *error = NULL;
-  GOptionContext *context = g_option_context_new("- IBus RadioMenuUpdateTimer engine");
+  GOptionContext *context = g_option_context_new("- IBus RadioMenuUpdateByTimer engine");
   g_option_context_add_main_entries(context, options, "change-property");
 
   if (!g_option_context_parse(context, &argc, &argv, &error)) {
@@ -378,22 +378,22 @@ int main(int argc, char *argv[])
 
   IBusFactory *factory = ibus_factory_new(ibus_bus_get_connection(bus));
   g_object_ref_sink(factory);
-  ibus_factory_add_engine(factory, "radiomenuupdatetimer", IBUS_TYPE_SAMPLE_ENGINE);
+  ibus_factory_add_engine(factory, "radiomenuupdatebytimer", IBUS_TYPE_SAMPLE_ENGINE);
 
   if (execute_by_ibus) {
-    ibus_bus_request_name(bus, "com.example.IBus.RADIOMENUUPDATETIMER", 0);
+    ibus_bus_request_name(bus, "com.example.IBus.RADIOMENUUPDATEBYTIMER", 0);
   } else {
-    IBusComponent *component = ibus_component_new("com.example.IBus.RADIOMENUUPDATETIMER",
-                                                  "Radio Menu Update Timer",
+    IBusComponent *component = ibus_component_new("com.example.IBus.RADIOMENUUPDATEBYTIMER",
+                                                  "Radio Menu Update By Timer",
                                                   "1.0",
                                                   "MIT",
                                                   "Kentaro Hayashi",
                                                   "https://github.com/kenhys/ibus-examples",
                                                   "",
-                                                  "ibus-engine-radiomenuupdatetimer");
-    IBusEngineDesc *description = ibus_engine_desc_new("radiomenuupdatetimer",
-                                                       "RadioMenuUpdateTimer",
-                                                       "Radio Menu Update Timer (Japanese Input Method)",
+                                                  "ibus-engine-radiomenuupdatebytimer");
+    IBusEngineDesc *description = ibus_engine_desc_new("radiomenuupdatebytimer",
+                                                       "RadioMenuUpdateByTimer",
+                                                       "Radio Menu Update By Timer (Japanese Input Method)",
                                                        "ja",
                                                        "MIT",
                                                        "Kentaro Hayashi",

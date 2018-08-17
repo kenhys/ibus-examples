@@ -1,29 +1,29 @@
-libexec_PROGRAMS = ibus-engine-radiomenuupdatetimer
+libexec_PROGRAMS = ibus-engine-radiomenuupdatebytimer
 
-ibus_engine_radiomenuupdatetimer_SOURCES = \
+ibus_engine_radiomenuupdatebytimer_SOURCES = \
         main.c \
         $(NULL)
 
-ibus_engine_radiomenuupdatetimer_CFLAGS = \
+ibus_engine_radiomenuupdatebytimer_CFLAGS = \
 	@IBUS_CFLAGS@ \
         @GTK_CFLAGS@ \
         $(NULL)
 
-ibus_engine_radiomenuupdatetimer_LDFLAGS = \
+ibus_engine_radiomenuupdatebytimer_LDFLAGS = \
         @IBUS_LIBS@ \
         @GTK_LIBS@ \
         $(NULL)
 
-ibus_engine_radiomenuupdatetimer_LDADD = \
+ibus_engine_radiomenuupdatebytimer_LDADD = \
         @GTK_LIBS@ \
         @IBUS_LIBS@ \
         $(NULL)
 
 component_DATA = \
-        radiomenuupdatetimer.xml \
+        radiomenuupdatebytimer.xml \
         $(NULL)
 componentdir = @datadir@/ibus/component
 
 EXTRA_DIST = \
-        radiomenuupdatetimer.xml \
+        radiomenuupdatebytimer.xml \
         $(NULL)
