@@ -219,7 +219,7 @@ delayed_property_activate(gpointer user_data)
 
 static IBusSampleProperty property;
 
-#define TIMER_DELAY_SECONDS 7000
+#define TIMER_DELAY_SECONDS 5000
 
 static void
 property_activate(IBusEngine *engine,
