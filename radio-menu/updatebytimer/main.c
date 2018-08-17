@@ -245,7 +245,7 @@ property_activate(IBusEngine *engine,
   } else if (!strcmp(prop_name, "MENUC")) {
     g_debug("%s:%s %s: set Katakana",
             G_STRLOC, G_STRFUNC, prop_name);
-    property.status = 1;
+    property.status = 2;
     g_timeout_add(7000, delayed_property_activate, &property);
   }
 }
