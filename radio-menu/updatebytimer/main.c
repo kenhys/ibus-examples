@@ -58,7 +58,7 @@ static IBusPropList *submenu = NULL;
 static IBusProperty *menua = NULL;
 static IBusProperty *menub = NULL;
 static IBusProperty *menuc = NULL;
-static gint g_imeonoff = 0;
+static gboolean g_imeonoff = FALSE;
 static gint g_inputkind = -1;
 
 #define INPUT_IMEOFF 0
@@ -189,7 +189,7 @@ delayed_property_activate(gpointer user_data)
     ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menuc, PROP_STATE_UNCHECKED);
     ibus_engine_update_property(property->engine, menua);
-    g_imeonoff = INPUT_IMEOFF;
+    g_imeonoff = FALSE;
     break;
   case 1:
     symbol = ibus_text_new_from_static_string("あ");
@@ -199,7 +199,7 @@ delayed_property_activate(gpointer user_data)
     ibus_property_set_state(menub, PROP_STATE_CHECKED);
     ibus_property_set_state(menuc, PROP_STATE_UNCHECKED);
     ibus_engine_update_property(property->engine, menub);
-    g_imeonoff = 1;
+    g_imeonoff = TRUE;
     g_inputkind = INPUT_HIRAGANA;
   case 2:
     symbol = ibus_text_new_from_static_string("ア");
@@ -209,7 +209,7 @@ delayed_property_activate(gpointer user_data)
     ibus_property_set_state(menub, PROP_STATE_UNCHECKED);
     ibus_property_set_state(menuc, PROP_STATE_CHECKED);
     ibus_engine_update_property(property->engine, menuc);
-    g_imeonoff = 1;
+    g_imeonoff = TRUE;
     g_inputkind = INPUT_KATAKANA;
   default:
     break;
@@ -288,7 +288,7 @@ static gboolean process_key_event(IBusEngine *engine,
   if (is_kanji(keyval, modifiers)) {
     if (g_imeonoff) {
       g_debug("%s:%s set IME to off", G_STRLOC, G_STRFUNC);
-      g_imeonoff = 0;
+      g_imeonoff = FALSE;
       symbol = ibus_text_new_from_static_string("-");
       ibus_property_set_symbol(menu, symbol);
       ibus_engine_update_property(engine, menu);
@@ -315,7 +315,7 @@ static gboolean process_key_event(IBusEngine *engine,
         ibus_engine_update_property(engine, menub);
         break;
       }
-      g_imeonoff = 1;
+      g_imeonoff = TRUE;
     }
   }
   return FALSE;
