@@ -227,7 +227,7 @@ static gboolean process_key_event(IBusEngine *engine,
 
   if (modifiers & IBUS_RELEASE_MASK) {
     g_debug("%s:%s skip to handle release key", G_STRLOC, G_STRFUNC);
-    return TRUE;
+    return FALSE;
   }
 
   g_debug("%s:%s ime on/off: %d input kind: %d",
@@ -267,7 +267,7 @@ static gboolean process_key_event(IBusEngine *engine,
       g_imeonoff = 1;
     }
   }
-  return TRUE;
+  return FALSE;
 }
 
 static void
