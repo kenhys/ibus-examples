@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component>
-  <name>com.example.IBus.RADIOMENUIMEONOFF3</name>
-  <description>Radio Menu</description>
-  <exec>/usr/libexec/ibus-engine-radiomenuimeonoff3 --ibus</exec>
+  <name>com.example.IBus.RADIOMENUUPDATEBYTIMER</name>
+  <description>Radio Menu Update By Timer</description>
+  <exec>/usr/libexec/ibus-engine-radiomenuupdatebytimer --ibus</exec>
   <version>1.0.0</version>
   <author>Kentaro Hayashi</author>
   <license>MIT</license>
   <homepage>https://github.com/kenhys/ibus-examples</homepage>
-  <textdomain>ibus-engine-radiomenuimeonoff</textdomain>
+  <textdomain>ibus-engine-radiomenuupdatebytimer</textdomain>
 
   <engines>
     <engine>
-      <name>radiomenuimeonoff3</name>
+      <name>radiomenuupdatebytimer</name>
       <language>ja</language>
       <license>MIT</license>
       <author>Kentaro Hayashi</author>
       <icon></icon>
       <layout>default</layout>
       <icon_prop_key>InputMode</icon_prop_key>
-      <longname>RadioMenuImeOnOff3</longname>
-      <description>Radio Menu IME On Off 3 (Japanese Input Method)</description>
+      <longname>RadioMenuUpdateByTimer</longname>
+      <description>Radio Menu Update By Timer (Japanese Input Method)</description>
       <rank>50</rank>
     </engine>
   </engines>
