@@ -181,7 +181,7 @@ delayed_property_activate(gpointer user_data)
           G_STRLOC, G_STRFUNC, property->status);
   IBusText *symbol;
   switch (property->status) {
-  case 0:
+  case INPUT_IMEOFF:
     symbol = ibus_text_new_from_static_string("-");
     ibus_property_set_symbol(menu, symbol);
     ibus_engine_update_property(property->engine, menu);
@@ -191,7 +191,7 @@ delayed_property_activate(gpointer user_data)
     ibus_engine_update_property(property->engine, menua);
     g_imeonoff = FALSE;
     break;
-  case 1:
+  case INPUT_HIRAGANA:
     symbol = ibus_text_new_from_static_string("あ");
     ibus_property_set_symbol(menu, symbol);
     ibus_engine_update_property(property->engine, menu);
@@ -201,7 +201,8 @@ delayed_property_activate(gpointer user_data)
     ibus_engine_update_property(property->engine, menub);
     g_imeonoff = TRUE;
     g_inputkind = INPUT_HIRAGANA;
-  case 2:
+    break;
+  case INPUT_KATAKANA:
     symbol = ibus_text_new_from_static_string("ア");
     ibus_property_set_symbol(menu, symbol);
     ibus_engine_update_property(property->engine, menu);
@@ -211,6 +212,7 @@ delayed_property_activate(gpointer user_data)
     ibus_engine_update_property(property->engine, menuc);
     g_imeonoff = TRUE;
     g_inputkind = INPUT_KATAKANA;
+    break;
   default:
     break;
   }
@@ -241,17 +243,17 @@ property_activate(IBusEngine *engine,
   if (!strcmp(prop_name, "MENUA")) {
     g_debug("%s:%s %s: Disable IME off",
             G_STRLOC, G_STRFUNC, prop_name);
-    property.status = 0;
+    property.status = INPUT_IMEOFF;
     g_timeout_add(TIMER_DELAY_SECONDS, delayed_property_activate, &property);
   } else if (!strcmp(prop_name, "MENUB")) {
     g_debug("%s:%s %s: set Hiragana",
             G_STRLOC, G_STRFUNC, prop_name);
-    property.status = 1;
+    property.status = INPUT_HIRAGANA;
     g_timeout_add(TIMER_DELAY_SECONDS, delayed_property_activate, &property);
   } else if (!strcmp(prop_name, "MENUC")) {
     g_debug("%s:%s %s: set Katakana",
             G_STRLOC, G_STRFUNC, prop_name);
-    property.status = 2;
+    property.status = INPUT_KATAKANA;
     g_timeout_add(TIMER_DELAY_SECONDS, delayed_property_activate, &property);
   }
 }
